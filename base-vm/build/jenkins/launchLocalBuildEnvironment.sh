@@ -252,9 +252,9 @@ fi
 source ./jenkins.env
 
 # Set shared workspace directory for Vagrant and Terraform jobs
-shared_workspace_base_directory_path="$(pwd)/$(basename ${jenkins_shared_workspace})"
+shared_workspace_base_directory_path="$(pwd)/$(basename "${jenkins_shared_workspace}")"
 git_root_path=$(git rev-parse --show-toplevel)
-export shared_workspace_directory_path="${shared_workspace_base_directory_path}/$(basename ${git_root_path})"
+export shared_workspace_directory_path="${shared_workspace_base_directory_path}/$(basename "${git_root_path}")"
 
 
 # Add OpenSSL binary to PATH if provided in jenkins.env
@@ -336,7 +336,7 @@ if [[ ${override_action} == "recreate" ]] || [[ ${override_action} == "destroy" 
       rm -rf ./jenkins_home ./.hash ./.vmCredentialsFile ./jenkinsLog*.txt || true
       if [[ ${override_action} == "fully-destroy" ]]; then
         log_info "Deleting jenkins workspace..."
-        rm -rf ${shared_workspace_base_directory_path} || true
+        rm -rf "${shared_workspace_base_directory_path}" || true
       fi
       log_info "Deleting downloaded tools..."
       rm -rf ./jq ./java ./amazon-corretto*.tar.gz ./jenkins-cli.jar ./mo ./jenkins-plugin-manager.jar || true
@@ -413,7 +413,7 @@ fi
 log_info "Downloading Java from https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html"
 mkdir -p java
 base=${javaInstallerUrl%.*}
-ext=${javaInstallerUrl#$base.}
+ext=${javaInstallerUrl#"$base".}
 if [[ ${ext} == "gz" ]]; then
   curl -# -o amazon-corretto-11-x64-linux-jdk.tar.gz -L ${javaInstallerUrl}
   tar tzf amazon-corretto-11-x64-linux-jdk.tar.gz >/dev/null
@@ -431,7 +431,7 @@ if [[ -z ${javaBinary} ]]; then
 fi
 error="false"
 
-if [ -d ${jenkins_home} ] && [[ ${override_action} != "recreate" ]] && [[ ${override_action} != "destroy" ]] && [[ ${override_action} != "fully-destroy" ]]; then
+if [ -d "${jenkins_home}" ] && [[ ${override_action} != "recreate" ]] && [[ ${override_action} != "destroy" ]] && [[ ${override_action} != "fully-destroy" ]]; then
   log_info "${jenkins_home} already exists. Will skip Jenkins setup. Delete or rename ${jenkins_home} if you want to re-install Jenkins"
 fi
 
@@ -439,13 +439,13 @@ firstTwoChars=$(echo "${jenkins_home}" | head -c2)
 firstChar=$(echo "${jenkins_home}" | head -c1)
 if [[ ${firstTwoChars} == "./" ]]; then
   # if workspace directory starts with ./, convert relative directory to absolute
-  jenkins_home_absolute_path=$(pwd)/$(echo ${jenkins_home} | sed 's;\./;;g')
+  jenkins_home_absolute_path=$(pwd)/$(echo "${jenkins_home}" | sed 's;\./;;g')
 elif [[ ${firstChar} == "/" ]]; then
   # If / at start, assume provided directory is already absolute and use it
   jenkins_home_absolute_path=${jenkins_home}
 elif [[ ${firstTwoChars} == ".\\" ]]; then
   # if workspace directory starts with .\, convert relative directory to absolute
-  jenkins_home_absolute_path=$(pwd)/$(echo ${jenkins_home} | sed 's/\.//g')
+  jenkins_home_absolute_path=$(pwd)/$(echo "${jenkins_home}" | sed 's/\.//g')
 else
   # If no ./ or / at beginning, assume relative working directory and convert to absolute
   jenkins_home_absolute_path="$(pwd)/${jenkins_home}"
@@ -479,15 +479,15 @@ if [ ! -f ./jenkins-plugin-manager.jar ]; then
 fi
 
 # Download plugins if not yet installed
-mkdir -p ${jenkins_home}/plugins
-availablePlugins=$(ls ${jenkins_home}/plugins)
+mkdir -p "${jenkins_home}"/plugins
+availablePlugins=$(ls "${jenkins_home}"/plugins)
 if [ -z "${availablePlugins}" ]; then
   #jenkinsDeliveryPipelinePluginVersion="1.4.2"
   #echo "${javaBinary} -jar ./jenkins-plugin-manager.jar --war ./jenkins.war --plugin-download-directory ${jenkins_home}/plugins --plugin-file ./initial-setup/plugins.txt --plugins delivery-pipeline-plugin:${jenkinsDeliveryPipelinePluginVersion} deployit-plugin"
   log_debug "${javaBinary} -jar ./jenkins-plugin-manager.jar --war ./jenkins.war --plugin-download-directory ${jenkins_home}/plugins --plugin-file ./initial-setup/plugins.txt"
   for i in {1..5}
   do
-    ${javaBinary} -jar ./jenkins-plugin-manager.jar --war ./jenkins.war --plugin-download-directory ${jenkins_home}/plugins --plugin-file ./initial-setup/plugins.txt
+    ${javaBinary} -jar ./jenkins-plugin-manager.jar --war ./jenkins.war --plugin-download-directory "${jenkins_home}"/plugins --plugin-file ./initial-setup/plugins.txt
     if [[ -f ${jenkins_home}/plugins/build-monitor-plugin.jpi ]]; then
       log_info "Seems plugins downloaded OK. Continuing."
       break
@@ -504,19 +504,19 @@ fi
 
 
 # Bypass Jenkins setup wizard
-if [ ! -f ${jenkins_home}/jenkins.install.UpgradeWizard.state ]; then
-  echo "${jenkinsDownloadVersion}" >${jenkins_home}/jenkins.install.UpgradeWizard.state
+if [ ! -f "${jenkins_home}"/jenkins.install.UpgradeWizard.state ]; then
+  echo "${jenkinsDownloadVersion}" >"${jenkins_home}"/jenkins.install.UpgradeWizard.state
 fi
 
 # Bypass Jenkins setup wizard
-if [ ! -f ${jenkins_home}/jenkins.install.InstallUtil.lastExecVersion ]; then
-  echo "${jenkinsDownloadVersion}" >${jenkins_home}/jenkins.install.InstallUtil.lastExecVersion
+if [ ! -f "${jenkins_home}"/jenkins.install.InstallUtil.lastExecVersion ]; then
+  echo "${jenkinsDownloadVersion}" >"${jenkins_home}"/jenkins.install.InstallUtil.lastExecVersion
 fi
 
 # Create shared workspace directory for Vagrant and Terraform jobs
 if [[ ! -L ${shared_workspace_directory_path} ]] && [[ ! -e ${shared_workspace_directory_path} ]]; then
-  mkdir -p ${shared_workspace_base_directory_path}
-  ln -s ${git_root_path} ${shared_workspace_base_directory_path}
+  mkdir -p "${shared_workspace_base_directory_path}"
+  ln -s "${git_root_path}" "${shared_workspace_base_directory_path}"
 fi
 
 # Replace variable placeholders in Jenkins jobs
@@ -537,17 +537,17 @@ for initialSetupJobConfgXmlFile in ${initialSetupJobConfgXmlFiles}; do
   log_info "Replacing placeholders with values in ${initialSetupJobConfgXmlFile}"
   for i in {1..5}; do
     # Get list of variables to replace
-    placeholdersToReplace=$(sed -n 's/.*{{\(.*[a-z_]\)}}.*/\1/p' ${initialSetupJobConfgXmlFile})
-    log_debug ${placeholdersToReplace}
-    cp -f ${initialSetupJobConfgXmlFile} ${initialSetupJobConfgXmlFile}_tmp
+    placeholdersToReplace=$(sed -n 's/.*{{\(.*[a-z_]\)}}.*/\1/p' "${initialSetupJobConfgXmlFile}")
+    log_debug "${placeholdersToReplace}"
+    cp -f "${initialSetupJobConfgXmlFile}" "${initialSetupJobConfgXmlFile}"_tmp
     for placeholder in ${placeholdersToReplace}; do
-      log_debug ${placeholder}
-      log_debug ${!placeholder}
-      log_debug ${initialSetupJobConfgXmlFile}_tmp
+      log_debug "${placeholder}"
+      log_debug "${!placeholder}"
+      log_debug "${initialSetupJobConfgXmlFile}"_tmp
       if [[ "$(uname)" == "Darwin" ]]; then
-        sed -E -i '' "s|\{\{${placeholder}\}\}|${!placeholder}|g" ${initialSetupJobConfgXmlFile}_tmp
+        sed -E -i '' "s|\{\{${placeholder}\}\}|${!placeholder}|g" "${initialSetupJobConfgXmlFile}"_tmp
       else
-        sed -E -i "s|\{\{${placeholder}\}\}|${!placeholder}|g" ${initialSetupJobConfgXmlFile}_tmp
+        sed -E -i "s|\{\{${placeholder}\}\}|${!placeholder}|g" "${initialSetupJobConfgXmlFile}"_tmp
       fi
     done
     if [ -s "${initialSetupJobConfgXmlFile}_tmp" ]; then
@@ -566,7 +566,7 @@ IFS=${OLD_IFS}
 export JENKINS_HOME="$(pwd)/jenkins_home"
 # TODO - Test Git paths on line below. Currently hardcoded for debugging
 screen -wipe -q >/dev/null
-screen -L -Logfile ./jenkinsLog_$(date '+%Y%m%d_%H%M%S').txt -S jenkins -d -m ${javaBinary} -jar ./jenkins.war --httpListenAddress=${jenkins_listen_address} --httpPort=${jenkins_server_port} -q >/dev/null
+screen -L -Logfile ./jenkinsLog_$(date '+%Y%m%d_%H%M%S').txt -S jenkins -d -m "${javaBinary}" -jar ./jenkins.war --httpListenAddress="${jenkins_listen_address}" --httpPort="${jenkins_server_port}" -q >/dev/null
 
 jenkins_url="http://${jenkins_listen_address}:${jenkins_server_port}"
 
@@ -575,9 +575,9 @@ log_warn "The next steps - downloading Jar files from Jenkins - might take a few
 log_info "Waiting for jenkins-cli.jar to become available..."
 while [[ ! -f ./jenkins-cli.jar ]]; do
   for i in {1..60}; do
-    http_code=$(curl -s -o /dev/null -L -w '%{http_code}' ${jenkins_url}/jnlpJars/jenkins-cli.jar || true)
+    http_code=$(curl -s -o /dev/null -L -w '%{http_code}' "${jenkins_url}"/jnlpJars/jenkins-cli.jar || true)
     if [[ ${http_code} == "200" ]]; then
-      curl -# ${jenkins_url}/jnlpJars/jenkins-cli.jar -o jenkins-cli.jar
+      curl -# "${jenkins_url}"/jnlpJars/jenkins-cli.jar -o jenkins-cli.jar
       break 2
     fi
     log_info "Waiting for ${jenkins_url}/jnlpJars/jenkins-cli.jar [RC=${http_code}]"
@@ -594,7 +594,7 @@ fi
 # In case jars already existed, add an additional check to wait for RC200
 log_info "Waiting for Jenkins to be fully up before continuing..."
 for i in {1..60}; do
-  http_code=$(curl -s -o /dev/null -L -w '%{http_code}' ${jenkins_url}/view/Status/ || true)
+  http_code=$(curl -s -o /dev/null -L -w '%{http_code}' "${jenkins_url}"/view/Status/ || true)
   if [[ ${http_code} == "200" ]]; then
     log_info "Jenkins is up, continuing with setting up the build & deploy environment"
     break
@@ -604,7 +604,7 @@ for i in {1..60}; do
 done
 
 # Get Jenkins Crumb
-export jenkinsCrumb=$(curl -s --cookie-jar /tmp/cookies -u admin:admin ${jenkins_url}/crumbIssuer/api/json | ${jqBinary} -r '.crumb')
+export jenkinsCrumb=$(curl -s --cookie-jar /tmp/cookies -u admin:admin "${jenkins_url}"/crumbIssuer/api/json | ${jqBinary} -r '.crumb')
 
 # Generated encrypted secret file to upload to Jenkins
 $(pwd)/generateSecretsFile.sh -r
@@ -627,17 +627,17 @@ for credentialXmlFile in ${credentialXmlFiles}; do
     if [ -s "${credentialXmlFile}_mo" ]; then
       # Remove credential before creating/recreating it
       log_debug "curl -X GET --cookie /tmp/cookies -H \"Jenkins-Crumb: ${jenkinsCrumb}\" -u admin:admin ${jenkins_url}/credentials/store/system/domain/_/credential/${credentialId} -L -s -o /dev/null -w \"%{http_code}\""
-      httpResponseCode=$(curl -X GET --cookie /tmp/cookies -H "Jenkins-Crumb: ${jenkinsCrumb}" -u admin:admin ${jenkins_url}/credentials/store/system/domain/_/credential/${credentialId} -L -s -o /dev/null -w "%{http_code}")
+      httpResponseCode=$(curl -X GET --cookie /tmp/cookies -H "Jenkins-Crumb: ${jenkinsCrumb}" -u admin:admin "${jenkins_url}"/credentials/store/system/domain/_/credential/"${credentialId}" -L -s -o /dev/null -w "%{http_code}")
       if [[ "${httpResponseCode}" == "200" ]]; then
         log_debug "curl -X POST --cookie /tmp/cookies -H \"Jenkins-Crumb: ${jenkinsCrumb}\" -u admin:admin ${jenkins_url}/credentials/store/system/domain/_/credential/${credentialId}/doDelete"
         log_info "Deleting credential with id ${credentialId} so it can be recreated"
         curl -X POST --cookie /tmp/cookies -H "Jenkins-Crumb: ${jenkinsCrumb}" \
           -u admin:admin \
-          ${jenkins_url}/credentials/store/system/domain/_/credential/${credentialId}/doDelete
+          "${jenkins_url}"/credentials/store/system/domain/_/credential/"${credentialId}"/doDelete
       else
         log_debug "Nothing to delete, as credential ${credentialId} did not exit yet" "orange"
       fi
-      cat "${credentialXmlFile}_mo" | "${javaBinary}" -jar jenkins-cli.jar -s ${jenkins_url} create-credentials-by-xml system::system::jenkins _ || true
+      cat "${credentialXmlFile}_mo" | "${javaBinary}" -jar jenkins-cli.jar -s "${jenkins_url}" create-credentials-by-xml system::system::jenkins _ || true
       rm -f "${credentialXmlFile}_mo"
       rm -f "${credentialXmlFile}"
       break
@@ -648,19 +648,19 @@ for credentialXmlFile in ${credentialXmlFiles}; do
 done
 
 # Delete credential in order to update/recreate it in next step
-httpResponseCode=$(curl -X GET --cookie /tmp/cookies -H "Jenkins-Crumb: ${jenkinsCrumb}" -u admin:admin ${jenkins_url}/credentials/store/system/domain/_/credential/VM_CREDENTIALS_FILE -L -s -o /dev/null -w "%{http_code}")
+httpResponseCode=$(curl -X GET --cookie /tmp/cookies -H "Jenkins-Crumb: ${jenkinsCrumb}" -u admin:admin "${jenkins_url}"/credentials/store/system/domain/_/credential/VM_CREDENTIALS_FILE -L -s -o /dev/null -w "%{http_code}")
 if [[ "${httpResponseCode}" == "200" ]]; then
  log_debug "curl -X POST --cookie /tmp/cookies -H \"Jenkins-Crumb: ${jenkinsCrumb}\" -u admin:admin ${jenkins_url}/credentials/store/system/domain/_/credential/VM_CREDENTIALS_FILE/doDelete"
  curl -X POST --cookie /tmp/cookies -H "Jenkins-Crumb: ${jenkinsCrumb}" \
      -u admin:admin \
-      ${jenkins_url}/credentials/store/system/domain/_/credential/VM_CREDENTIALS_FILE/doDelete
+      "${jenkins_url}"/credentials/store/system/domain/_/credential/VM_CREDENTIALS_FILE/doDelete
 else
   log_debug "Nothing to delete, as credential VM_CREDENTIALS_FILE did not exit yet" "orange"
 fi
 
 # Post encrypted file to Jenkins as a credential
 curl -s -X POST --cookie /tmp/cookies -H "Jenkins-Crumb: ${jenkinsCrumb}" -u admin:admin \
-  ${jenkins_url}/credentials/store/system/domain/_/createCredentials \
+  "${jenkins_url}"/credentials/store/system/domain/_/createCredentials \
   -F securedCredentials=@$(pwd)/.vmCredentialsFile \
   -F 'json={"": "4", "credentials": {"file": "securedCredentials", "id": "VM_CREDENTIALS_FILE", "description": "KX.AS.CODE credentials", "stapler-class": "org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl", "$class": "org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl"}}'
 
