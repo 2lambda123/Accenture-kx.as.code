@@ -1,5 +1,5 @@
 mssqlServerRestoreDatabaseWithNewDbName() {
-        
+
     local mssqlServerIp=${1:-}
     local mssqlServerGoPassCredentialName=${2:-}
     local mssqlServerGoPassCredentiaGroup=${3:-}

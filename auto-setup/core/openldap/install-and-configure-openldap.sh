@@ -222,4 +222,3 @@ olcAccess: {1}to attrs=userPassword
 ''' | /usr/bin/sudo tee /etc/ldap/allow_user_password_change.ldif
 /usr/bin/sudo ldapmodify -Y EXTERNAL -H ldapi:/// -f /etc/ldap/allow_user_password_change.ldif || rc=$?
 fi
-

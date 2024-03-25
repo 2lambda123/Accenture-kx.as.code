@@ -21,5 +21,5 @@ deployYamlFilesToKubernetes() {
     else
         log_warn "${installComponentDirectory}/deployment_yaml not found. Nothing to deploy."
     fi
-    
+
 }

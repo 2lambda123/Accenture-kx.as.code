@@ -9,5 +9,5 @@ checkGlusterFsServiceInstalled() {
       log_info "Glusterfs is installed. Continuing with storage as defined in the solution's YAML configuration files"
       export forceStorageClassToLocal="false"
   fi
-  
+
 }

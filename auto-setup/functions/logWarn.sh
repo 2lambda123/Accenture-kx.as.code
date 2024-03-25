@@ -9,5 +9,5 @@ log_warn() {
             >&2 echo -e "[WARN] (${callerName}) ${1}" | tee -a ${logFilename}
         fi
     fi
-    
+
 }

@@ -394,7 +394,7 @@ try {
             <span id="selection-k3s-radio" class="selection-radio orchestrator-selection-radio-unselected"><img id="selection-k3s-svg" src="/userContent/icons/radiobox-blank.svg" class="svg-blue"></span><span id="selection-k3s-label" class="selection-label selection-label-unselected" style="border: 1px solid var(--kx-material-primary-70); border-width: 1px 1px 1px 0; border-radius: 0 5px 5px 0px;">K3s</span>
         </span>
 </span>
-            
+
         </div>
         <style scoped="scoped" onload="populate_profile_option_list();">   </style>
 
@@ -454,7 +454,7 @@ try {
                     </span>
                 </div>
                 <style scoped='scoped' onload='getBuildJobListForProfile("KX.AS.CODE_Image_Builder", "kx-main"); getBuildJobListForProfile("KX.AS.CODE_Image_Builder", "kx-node");'>   </style>
-                
+
                 <input type="hidden" id="local-kx-version" value='${localKxVersion}' >
                 <input type="hidden" id="github-kx-version" value='${githubKxVersion}' >
                 <input type="hidden" id="local-kube-version" value='${localKubeVersion}' >
@@ -490,7 +490,7 @@ try {
                 <input type="hidden" id="vmware-desktop-profile-selected-orchestrator" value='${vmwareDesktopSelectedOrchestrator}' >
                 <input type="hidden" id="parallels-profile-selected-startup-mode" value='${parallelsSelectedStartupMode}' >
                 <input type="hidden" id="parallels-profile-selected-orchestrator" value='${parallelsSelectedOrchestrator}' >
-                
+
             </div>
         </div>
         <input type="hidden" id="concatenated-profile-selection" name="value" value="">
@@ -500,5 +500,3 @@ try {
 } catch (e) {
     println "Something went wrong in the HTML return block (select_profile_and_check_prereqs.groovy): ${e}"
 }
-
-

@@ -35,5 +35,5 @@ createKeycloakUser() {
         fi
 
     fi
-    
+
 }

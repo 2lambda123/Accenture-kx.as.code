@@ -15,7 +15,7 @@ loginToCoreRegistry() {
       export dockerPassword=$(managedPassword "user-${dockerUser}-password" "users")
     elif [[ -n ${dockerUser} ]]; then
       export dockerPassword=$(managedApiKey "docker-registry-${dockerUser}-password" "docker-registry")
-    else 
+    else
       export dockerPassword=$(managedApiKey "docker-registry-${namespace}-password" "docker-registry")
       export dockerUser=${namespace}
     fi

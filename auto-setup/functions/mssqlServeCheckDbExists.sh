@@ -1,5 +1,5 @@
 mssqlServeCheckDbExists() {
-        
+
     local mssqlServerIp=${1:-}
     local mssqlServerGoPassCredentialName=${2:-}
     local mssqlServerGoPassCredentiaGroup=${3:-}
@@ -10,7 +10,7 @@ mssqlServeCheckDbExists() {
 
     # Get MSSQL SA password
     local mssqlSaPassword="$(managedPassword "${mssqlServerGoPassCredentialName}" "${mssqlServerGoPassCredentiaGroup}")"
-   
+
     # Check if database exists
     /opt/mssql-tools/bin/sqlcmd -S ${mssqlServerIp} -Q 'IF DB_ID("'${mssqlServerSourceDatabase}'") IS NOT NULL print "EXISTS";' -U sa -P ${mssqlSaPassword}
 

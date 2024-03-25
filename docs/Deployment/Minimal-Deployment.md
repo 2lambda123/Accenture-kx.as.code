@@ -9,7 +9,7 @@ Here are the steps to make that happen:
     ![](../assets/images/jenkins_minimal_setup.png){: .zoom}
 
     The following table shows what is/is not installed, when selecting the minimal startup mode.
-    
+
     | Start Up Mode | Normal | Lite | Minimal |
     | ---------------|----------------|----------------|----------------|
     | KX-Portal | :white_check_mark: | :white_check_mark: | :white_check_mark: |
@@ -42,7 +42,7 @@ Here are the steps to make that happen:
 4. Ensure no group installation templates are selected, so that you can add apps individually later, depending on the remaining available resources
 
     ![](../assets/images/jenkins_minimal_setup4.png){: .zoom}
-   
+
 5. Review your settings and click play!
 
     ![](../assets/images/jenkins_minimal_setup5.png){: .zoom}

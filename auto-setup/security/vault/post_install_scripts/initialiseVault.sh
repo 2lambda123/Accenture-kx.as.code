@@ -15,7 +15,7 @@ if [[ "${vaultInitializedStatus}" != "true" ]]; then
             if [[ -z ${vaultInitializationText} ]]; then
                 pushPassword "vault-initialization-text" "${vaultInit}" "vault"
                 break
-            fi  
+            fi
         else
             log_info "Vault initial root token and unseal keys not yet available, trying again"
             sleep 15
@@ -41,7 +41,7 @@ do
         if [[ -z ${vaultIinitialRootToken} ]]; then
             pushPassword "vault-initial-root-token" "${initialRootToken}" "vault"
             break
-        fi         
+        fi
     else
         # Delete empty secret and try again
         kubectl delete secret vault-initial-root-token -n ${namespace}

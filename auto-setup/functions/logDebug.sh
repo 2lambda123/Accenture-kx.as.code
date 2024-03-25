@@ -8,6 +8,6 @@ log_debug() {
         if [[ "${logLevel}" == "debug" ]] || [[ "${logLevel}" == "trace" ]]; then
            >&2 echo -e "[DEBUG] (${callerName}) ${1}" | tee -a ${logFilename}
         fi
-    fi    
+    fi
 
 }

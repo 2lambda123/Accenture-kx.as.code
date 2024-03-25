@@ -65,4 +65,3 @@ elif [[ "${kubeOrchestrator}" == "k3s" ]] && [[ "${enableK3sOidc}" == "true" ]];
 fi
 
 fi
-

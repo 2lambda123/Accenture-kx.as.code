@@ -10,7 +10,7 @@ populateActionQueuesJson() {
 
     # Merge json files if user uploaded aq* files present
     if [[ -n ${aqFiles[@]} ]]; then
-    
+
       log_debug "Action Queue files to process: ${aqFiles[@]}"
 
       if [[ ! -f ${installationWorkspace}/actionQueues.json ]] || [[ ! -s ${installationWorkspace}/actionQueues.json ]]; then
@@ -26,7 +26,7 @@ populateActionQueuesJson() {
         combinedQueues="${coreComponentsOnCompletedQueue}\n${coreComponentsOnPendingQueue}\n${coreComponentsOnWipQueue}\n${coreComponentsOnRetryQueue}\n${coreComponentsOnFailedQueue}"
         echo -e "Unsorted queue:\n${combinedQueues}"
         sortedUniqueCombinedQueue=$(echo -e ${combinedQueues} | sort -u | awk 'NF')
-        
+
         # Calculate totals for comparison
         totalCoreComponentsOnQueue=$(echo -e ${sortedUniqueCombinedQueue} | wc -l)
         totalCoreComponentsInBaselineActionQueueFile=$(cat ${autoSetupHome}/actionQueues.json | jq -r '.action_queues.install[] | select(.install_folder=="core") | .name' | wc -l)

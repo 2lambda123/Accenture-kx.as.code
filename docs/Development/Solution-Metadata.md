@@ -8,16 +8,16 @@ There is a backlog item to support Operators in future, but for now these can be
 
 !!! info
     For an example of an Operator installed via the script based method, see the [MinIO Operator installation scripts](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/storage/minio-operator){:target="\_blank"}.
-    
+
     This was based on Helm in the past, but was recently migrated to the Operator. It is described in detail below.
 
 This page is primarily for describing `metadata.json` options. For a more detailed development guide, see the [development walk-through](../../Development/Adding-a-Solution/).
 
-The first table describes the common configuration items for all installation routines. The subsequent tables show the additional configuration items needed specific to the installation method. 
+The first table describes the common configuration items for all installation routines. The subsequent tables show the additional configuration items needed specific to the installation method.
 
 ### Common - General Settings
 
-These settings are the configuration items that are common to all installation methods. 
+These settings are the configuration items that are common to all installation methods.
 
 | 	Path Name	                             | Description	                                                                                                                                                                                                                                                 | Example                                                       |
 |-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
@@ -44,7 +44,7 @@ Health checks, especially the readiness checks, are an important part of the ins
 
 Often post installation steps require the solution's API to be available. The health checks ensure post steps do not run until this is so.
 
-The liveliness checks are no yet in use as all tools are monitored for health by Kubernetes, but hey may be used in future inside the KX-Portal. 
+The liveliness checks are no yet in use as all tools are monitored for health by Kubernetes, but hey may be used in future inside the KX-Portal.
 
 | 	Path Name	                                                                 | Description	                                                                                                                                                                                                                                                                            | Example                                              |
 |-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
@@ -338,4 +338,3 @@ For general information on ArgoCD, visit their [docs site](https://argo-cd.readt
 | 	argocd_params.sync_policy	    | See the following [link](https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/){:target="\_blank"} | 	`automated`	                                 |
 | 	argocd_params.auto_prune	     | See the following [link](https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/){:target="\_blank"} | 	`true`	                                      |
 | 	argocd_params.self_heal	      | See the following [link](https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/){:target="\_blank"} | 	`true`	                                      |
-

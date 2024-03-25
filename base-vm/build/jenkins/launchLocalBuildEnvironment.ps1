@@ -93,7 +93,7 @@ function Log_Error
 
 
 #PowerShell Terminal
-if ($env:WT_SESSION) { 
+if ($env:WT_SESSION) {
     Log_Info("PowerShell terminal is detected")
 } else {
     Log_Error("PowerShell Terminal not detected, Please use a Powershell Terminal")

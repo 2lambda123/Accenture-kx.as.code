@@ -40,4 +40,3 @@ subjects:
     name: telegraf
     namespace: default
 ''' | kubectl apply -f -
-

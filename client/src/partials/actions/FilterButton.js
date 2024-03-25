@@ -61,9 +61,9 @@ function FilterButton(props) {
           <ul className="mx-3 mb-4 text-white">
             <li className="py-1 px-3">
               <label className="flex items-center">
-                <input id="checkCompleted" defaultChecked={true} 
-                onClick={ e => { props.filterHandler(e.target.id )}} 
-                type="checkbox" 
+                <input id="checkCompleted" defaultChecked={true}
+                onClick={ e => { props.filterHandler(e.target.id )}}
+                type="checkbox"
                 className="form-checkbox text-ghBlack"
                 onChange={e => {e.target.checked ? setActiveOptionsCount(activeOptionsCount => activeOptionsCount + 1): setActiveOptionsCount(activeOptionsCount => activeOptionsCount - 1)}}/>
                 <span className="text-sm font-medium ml-2">Completed</span>
@@ -71,20 +71,20 @@ function FilterButton(props) {
             </li>
             <li className="py-1 px-3">
               <label className="flex items-center">
-              <input id="checkFailed" defaultChecked={true} 
-              onClick={ e => { props.filterHandler(e.target.id )}} 
-              type="checkbox" 
-              className="form-checkbox text-ghBlack" 
+              <input id="checkFailed" defaultChecked={true}
+              onClick={ e => { props.filterHandler(e.target.id )}}
+              type="checkbox"
+              className="form-checkbox text-ghBlack"
               onChange={e => {e.target.checked ? setActiveOptionsCount(activeOptionsCount => activeOptionsCount + 1): setActiveOptionsCount(activeOptionsCount => activeOptionsCount - 1)}} />
                 <span className="text-sm font-medium ml-2">Failed</span>
               </label>
             </li>
             <li className="py-1 px-3">
               <label className="flex items-center">
-              <input id="checkPending" defaultChecked={true} 
-              onClick={ e => { props.filterHandler(e.target.id )}} 
-              type="checkbox" 
-              className="form-checkbox text-ghBlack" 
+              <input id="checkPending" defaultChecked={true}
+              onClick={ e => { props.filterHandler(e.target.id )}}
+              type="checkbox"
+              className="form-checkbox text-ghBlack"
               onChange={e => {e.target.checked ? setActiveOptionsCount(activeOptionsCount => activeOptionsCount + 1): setActiveOptionsCount(activeOptionsCount => activeOptionsCount - 1)}} />
                 <span className="text-sm font-medium ml-2">Pending</span>
               </label>

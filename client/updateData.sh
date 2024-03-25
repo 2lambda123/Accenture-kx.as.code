@@ -14,7 +14,7 @@ jq -s 'flatten' */*/metadata.json > ${rootRepoDir}/client/src/data/combined-meta
 
 # Generate combined group json
 cd  ${rootRepoDir}
-jq -s 'flatten' templates/aq*.json > ${rootRepoDir}/client/src/data/combined-application-group-files.json 
+jq -s 'flatten' templates/aq*.json > ${rootRepoDir}/client/src/data/combined-application-group-files.json
 
 # Copy updated version.json
 cp -f ${rootRepoDir}/versions.json ${rootRepoDir}/client/src/data/

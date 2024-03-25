@@ -67,7 +67,7 @@ if [[ ! -f ${elasticStackCertsDir}/ca.zip ]]; then
           docker.elastic.co/elasticsearch/elasticsearch:${elasticVersion} \
           /bin/sh -c " \
                   /usr/share/elasticsearch/bin/elasticsearch-certutil ca --pass ''${elasticCaPassword}'' --out /certs/ca.zip --pem --verbose"
-  
+
   # Unzip CA certs
   /usr/bin/sudo unzip ${elasticStackCertsDir}/ca.zip -d ${elasticStackCertsDir}
 fi

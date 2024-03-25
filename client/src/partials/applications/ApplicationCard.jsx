@@ -489,7 +489,7 @@ function ApplicationCard(props) {
               RabbitMQ service.
             </div>
           )} */}
-              {/* 
+              {/*
           {appQueue != "pending_queue" &&
             (appQueue != "completed_queue" && props.isMqConnected ? (
               <div className="">

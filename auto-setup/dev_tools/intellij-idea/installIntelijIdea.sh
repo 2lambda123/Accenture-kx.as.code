@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Download Idea IntelliJ 
+# Download Idea IntelliJ
 downloadFile "https://download.jetbrains.com/idea/ideaIC-${intellijIdeaVersion}.tar.gz" \
     "${intellijIdeaChecksum}" \
     "${installationWorkspace}/ideaIC-${intellijIdeaVersion}.tar.gz" || rc=$?
@@ -9,7 +9,7 @@ if [[ ${rc} -ne 0 ]]; then
     exit $rc
 fi
 
-# Untar to base user's home folder 
+# Untar to base user's home folder
 mkdir -p /home/${baseUser}/intellij-idea
 tar xvzf ${installationWorkspace}/ideaIC-${intellijIdeaVersion}.tar.gz -C /home/${baseUser}/intellij-idea --strip-components=1
 chown -R ${baseUser}:${baseUser} /home/${baseUser}/intellij-idea

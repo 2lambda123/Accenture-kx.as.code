@@ -12,5 +12,5 @@ setLogFilename() {
     # Send log to generic log, if ${componentName} not defined
     echo "${installationWorkspace}/kx.as.code_autoSetup.log"
   fi
-  
+
 }

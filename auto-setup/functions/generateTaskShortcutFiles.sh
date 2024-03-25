@@ -66,7 +66,7 @@ generateTaskShortcutFiles() {
     fi
 
     logCommand="tilix --session ${shortcutDestinationFolder}/.tilix-profile.json"
-    
+
     # Create Tilix multi-tile profile JSON
     echo '''{
     "child": {
@@ -131,7 +131,7 @@ generateTaskShortcutFiles() {
                 taskMessage="Task '${taskTitle}' is disabled and will therefore not be executed."
                 taskMessageType="info"
             fi
-        
+
             if [[ -n ${taskMessage} ]]; then
                 if [[ -n ${taskMessageType} ]]; then
                 		case ${taskMessageType} in
@@ -311,7 +311,7 @@ fi
 
     # Create script for viewing component's cockpit
     echo '''#!/bin/bash
-    if wmctrl -l | grep "Tilix: '${tasksComponentName}' Cockpit"; then 
+    if wmctrl -l | grep "Tilix: '${tasksComponentName}' Cockpit"; then
         wmctrl -i -a $(wmctrl -l | grep "Tilix: '${tasksComponentName}' Cockpit" | awk {''print $1''} | tail -1)
     else
         tilix --session '${shortcutDestinationFolder}'/.tilix-profile.json
@@ -381,7 +381,7 @@ getLastItemFromQueue() {
         exit 1
         ;;
     esac
-    
+
     queueMessages=\$(curl -s -u guest:guest -H "content-type:application/json" -X POST http://127.0.0.1:15672/api/queues/%2F/\${queueName}/get -d'{"count":99999999,"ackmode":"ack_requeue_true","encoding":"auto","truncate":50000}' | jq -r '.')
     messageCount=\$(echo \${queueMessages} | jq '. | length')
     if [[ "\${queueName}" != "completed_queue" ]]; then

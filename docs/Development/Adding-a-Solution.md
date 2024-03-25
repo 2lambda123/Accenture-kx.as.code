@@ -57,16 +57,16 @@ Current available categories are as follows.
 |security|BitWarden, NeuVector, Hashicorp Vault, Sysdig Falco|
 |storage|Minio-S3, NextCloud|
 
-### Determine install method 
+### Determine install method
 
 Current possibilities are ArgoCD, [Helm](https://helm.sh/){:target="\_blank"} or purely Script based. In future we will look to also enable deployment with [Kustomize](https://kustomize.io/){:target="\_blank"}.
 
-### Create the base directories.   
+### Create the base directories.
 ![](../assets/images/add_application_workflow1.png){: .zoom}
 
 ### Populate the directory with the relevant files
 
-The number of scripts or screenshots will differ per solution per solution. 
+The number of scripts or screenshots will differ per solution per solution.
 
 <pre><code>├── auto-setup
 │   ├── security
@@ -104,9 +104,9 @@ See the [Solution Metadata](../../Development/Solution-Metadata/#helm) documenta
 Taking the example for the values file added for NeuVector, the json in metadata.json would look as follows:
 
 !!! tip
-    In the default NeuVector `values.yaml` file, the `imageTag` was `5.0.0`. It's always worth to check in the source registry (in this case [Docker Hub](https://hub.docker.com/r/neuvector/controller/tags){:target="\_blank"}), to see if there is a new version available. 
+    In the default NeuVector `values.yaml` file, the `imageTag` was `5.0.0`. It's always worth to check in the source registry (in this case [Docker Hub](https://hub.docker.com/r/neuvector/controller/tags){:target="\_blank"}), to see if there is a new version available.
 
-    Word of caution, a minor version change is probably safe. Careful with updating to a new major version, as it may not be compatible with the helm chart. 
+    Word of caution, a minor version change is probably safe. Careful with updating to a new major version, as it may not be compatible with the helm chart.
 
     For NeuVector, `5.0.1` was available. This was added to metadata.json and referenced in the values file, as you can see in the example below.
 
@@ -131,7 +131,7 @@ Taking the example for the values file added for NeuVector, the json in metadata
                 "tag={{imageTag}}",
                 "controller.ingress.enabled=true",
                 "controller.ingress.tls=true",
-                "controller.ingress.secretName=kx-certificates",        
+                "controller.ingress.secretName=kx-certificates",
                 "controller.ingress.ingressClassName=nginx",
                 "controller.ingress.host[0]={{componentName}}.{{baseDomain}}",
                 "controller.ingress.path=\/",
@@ -148,9 +148,9 @@ Taking the example for the values file added for NeuVector, the json in metadata
     # Default values for neuvector.
     # This is a YAML-formatted file.
     # Declare variables to be passed into the templates.
-    
+
     openshift: false
-    
+
     registry: docker.io
     tag: {{imageTag}}
     oem:
@@ -159,7 +159,7 @@ Taking the example for the values file added for NeuVector, the json in metadata
     serviceAccount: default
     ```
 
-!!! tip 
+!!! tip
     Notice also the `{{ mustache }}` variables in the `set_key_values[]` block. These will also be replaced automatically with both global variables and those in `metadata.json`.
 !!! warning
     Important. As in the example, `/` must be escaped with a `\`
@@ -211,7 +211,7 @@ If on the `wip_queue`, use the GUI to move the message to the `retry_queue`. In 
 
 `sudo systemctl restart kxAsCodeQueuePoller.service`
 
-!!! warning 
+!!! warning
     In some cases it may be needed to also un-install the application before re-installing, if for example fixing a Kubernetes resource that is not changeable. This can be done with
 
     helm uninstall _<application name\>_ --namespace _<namespace\>_
@@ -251,7 +251,7 @@ Someone from the core KX.AS.CODE development team will review your change and ei
 
 ## ArgoCD
 
-As with Helm, there are some ArgoCD specific parameters that need to be included in `metadata.json`. 
+As with Helm, there are some ArgoCD specific parameters that need to be included in `metadata.json`.
 
 !!! note
     You must have installed ArgoCD before you can use this installation method
@@ -278,4 +278,4 @@ This is the easiest approach, as it does not require any specific configuration,
 
 That said, consider the following points.
 
-- You can also use this method to install files in `deployment_yaml` without ArgoCD. Simply add the needed YAML files to this directory within your component's directory, and then call the [deployYamlFilesToKubernetes()](../../Development/Available-Functions/#deployyamlfilestokubernetes) function in your main script. The function checks that the YAML is valid with [kubeVal](https://kubeval.instrumenta.dev/){:target="\_blank"} before applying.  
+- You can also use this method to install files in `deployment_yaml` without ArgoCD. Simply add the needed YAML files to this directory within your component's directory, and then call the [deployYamlFilesToKubernetes()](../../Development/Available-Functions/#deployyamlfilestokubernetes) function in your main script. The function checks that the YAML is valid with [kubeVal](https://kubeval.instrumenta.dev/){:target="\_blank"} before applying.

@@ -7,7 +7,7 @@ To start KX.AS.CODE in OpenStack, you need to change into the OpenStack profiles
 
 In this guide I will only go into the OpenStack specifics, as the general setup is already described in the "Initial Setup" guide.
 
-!!! tip 
+!!! tip
     If you don't have access to an OpenStack cluster, but want to try it out, then follow our [OpenStack setup guide](../../Prerequisites/OpenStack-Setup/)
 
 Before you get started, see the following [documentation from Packer](https://www.packer.io/plugins/builders/openstack){:target="\_blank"} to see how the OpenStack packer builder works.

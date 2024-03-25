@@ -4,7 +4,7 @@ createFileManagerShortcut() {
     local username=${2:-}
     local shortcutIcon=${3:-"inode-directory"} # options: folder-text folder-favorites folder-script system-run applications-all
     local shortcutTitle=$(basename "${directoryToShortcut}")
-    
+
     if [[ -f /home/${username}/.local/share/user-places.xbel ]]; then
         # Check if entry already exists
         local exists=$(xq '.xbel.bookmark[] | select(."@href" == "file://'"${directoryToShortcut}"'")' /home/${username}/.local/share/user-places.xbel)

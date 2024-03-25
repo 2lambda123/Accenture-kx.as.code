@@ -86,7 +86,7 @@ sendSlackNotification() {
                                 {
                                         "type": "mrkdwn",
                                         "text": "*Task:* '${task^}'"
-                                },      
+                                },
                                 {
                                         "type": "mrkdwn",
                                         "text": "*Status:* '${actionStatus^}'"
