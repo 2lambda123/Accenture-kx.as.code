@@ -16,10 +16,10 @@ deletePassword() {
 
   # Conditional statement in case this is being re-run for an already deployed solution
   # Delete password from GoPass
-  if [[ -n "${passwordGroup}" ]]; then 
+  if [[ -n "${passwordGroup}" ]]; then
     /usr/bin/sudo -H -i -u ${gopassUser} bash -c "gopass delete --force \"${baseDomain}/${passwordGroup}/${passwordName}\""
   else
     /usr/bin/sudo -H -i -u ${gopassUser} bash -c "gopass delete --force \"${baseDomain}/${passwordName}\""
   fi
-  
+
 }

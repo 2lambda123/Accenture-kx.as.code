@@ -339,7 +339,7 @@ try {
                 </div>
 
                 <div class="svg-item">
-                    
+
                     <svg width="250px" height="250px" viewBox="0 0 40 40" class="donut">
                         <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="#fff"></circle>
                         <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"></circle>
@@ -413,7 +413,7 @@ try {
                                 <span id="list-templates-tooltip-text" class="tooltiptext"></span>
                             </div>
                         </div>
-                    </div>                   
+                    </div>
                 </div>
             </div>
             <div class="flex-item">
@@ -430,7 +430,7 @@ try {
                         <div class="cell cell-label">Profile</div>
                          <div class="cell cell-value" id="summary-profile-value"></div>
                         </div>
-                    </div>                   
+                    </div>
                 </div>
             </div>
          </div>
@@ -468,4 +468,3 @@ try {
 } catch (e) {
     println "Something went wrong in the HTML return block (config_review_and_launch.groovy): ${e}"
 }
-

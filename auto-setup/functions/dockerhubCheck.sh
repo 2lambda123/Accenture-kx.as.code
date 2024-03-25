@@ -7,7 +7,7 @@ checkDockerHubRateLimit() {
   local dockerHubEmail=$(getPassword "dockerhub_email" "base-technical-credentials")
 
   if [[ -n ${dockerHubUsername} ]] && [[ -n ${dockerHubPassword} ]]; then
- 
+
     export dockerAuthApiUrl="https://auth.docker.io/token?service=registry.docker.io&scope=repository:ratelimitpreview/test:pull"
     if [[ -n ${dockerHubUsername} ]] && [[ -n ${dockerHubPassword} ]]; then
       dockerHubToken=$(curl --user ''${dockerHubUsername}:${dockerHubPassword}'' "${dockerAuthApiUrl}" | jq -r .token)

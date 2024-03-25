@@ -1,7 +1,7 @@
 # Changelog
 
 ## [v0.8.13](https://github.com/Accenture/kx.as.code/releases/tag/v0.8.13) (2023-03-05)
-v0.8.13 is a bumper release with quite a few new features and bug fixes. 
+v0.8.13 is a bumper release with quite a few new features and bug fixes.
 Read the full list below for details.
 
 **Implemented enhancements:**

@@ -198,8 +198,8 @@ try {
                         </span>
                     </div>
                 </span>
-            </span>    
-            <span class="experience-meter-emoji-icon-span"><img src="/userContent/icons/emoji_robot1.png" id="experience-meter-emoji-icon" class="experience-meter-emoji-icon" alt="" /></span>       
+            </span>
+            <span class="experience-meter-emoji-icon-span"><img src="/userContent/icons/emoji_robot1.png" id="experience-meter-emoji-icon" class="experience-meter-emoji-icon" alt="" /></span>
         </div>
         <h2 style="margin-top: 20px;">KX-Main Parameters</h2>
         <span class="description-paragraph-span"><p>${extendedDescription }</p></span>
@@ -230,7 +230,7 @@ try {
             </div>
             <span id="counter_value_main_node_count_warning_icon" data-text="${mainNodeCountWarningText}" class="warning-span tooltip">
                 <img src="/userContent/icons/triangle-exclamation-solid.svg" class="warn-image svg-orange-red" alt="warning" />
-            </span>                    
+            </span>
         </div>
     </div>
     <style scoped="scoped" onload="show_value(&quot;${mainNodeCountStartValue}&quot;, &quot;counter_value_main_node_count_previous_value&quot;, &quot;counter_value_main_node_count&quot;, &quot;counter_value_main_node_count_value&quot;, &quot;counter_value_main_node_count_warning_icon&quot;, &quot;${mainNodeCountMinWarning}&quot;, &quot;${mainNodeValueDisplayConversion}&quot;, &quot;${mainNodeCountRangeUnit}&quot;);">   </style>
@@ -269,7 +269,7 @@ try {
                         <img src="/userContent/icons/information-variant.svg" class="info-icon" alt="info">
                     </span>
                     <span class="tooltiptext">${mainNodeCpuCoresInfoText}</span>
-                </div>  
+                </div>
                 <span id="slider_value_main_admin_node_cpu_cores_warning_icon" data-text="${mainNodeCpuCoresWarningText}" class="warning-span tooltip">
                     <img src="/userContent/icons/triangle-exclamation-solid.svg" class="warn-image svg-orange-red" alt="warning" />
                 </span>
@@ -302,7 +302,7 @@ try {
                         <img src="/userContent/icons/information-variant.svg" class="info-icon" alt="info">
                     </span>
                     <span class="tooltiptext">${mainNodeMemoryInfoText}</span>
-                </div>  
+                </div>
                 <span id="slider_value_main_admin_node_memory_warning_icon" data-text="${mainNodeMemoryWarningText}" class="warning-span tooltip">
                     <img src="/userContent/icons/triangle-exclamation-solid.svg" class="warn-image svg-orange-red" alt="warning" />
                 </span>

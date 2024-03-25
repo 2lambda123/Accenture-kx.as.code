@@ -19,15 +19,15 @@ The local storage drive is installed to all nodes, main and worker. The network 
 
 These drive names tend to hold true for the local virtualization platforms, but may be called something else in AWS or your physical hardware (if installing on Raspberry Pi).
 
-KX.AS.CODE automatically detects the correct drive to use by checking for an unformatted drive's disk size, which should match was either selected in the Jenkins launcher or manually edited in `profile-config.json`. 
+KX.AS.CODE automatically detects the correct drive to use by checking for an unformatted drive's disk size, which should match was either selected in the Jenkins launcher or manually edited in `profile-config.json`.
 
 !!! danger
     For the virtual solutions (cloud or local) there is no danger in losing any data, as the VMs are coming up with new virtual drives. For a Raspberry Pi setup with mounted physical hardware, it is recommended to either mount new drives and disconnect the ones not relevant for KX.AS.CODE, to avoid accidental loss of data.
 
-    If you already know the disk name for the local storage, you can define it in `profile-config.json` with the `config.local_volumes.diskName` property, and likewise, via the `config.glusterFsDiskName` property for the network storage.  
+    If you already know the disk name for the local storage, you can define it in `profile-config.json` with the `config.local_volumes.diskName` property, and likewise, via the `config.glusterFsDiskName` property for the network storage.
 
 !!! tip
-    For any database workload, you should select the local storage. Not following this pattern may cause the database and associated application not to function in a stable manner.  
+    For any database workload, you should select the local storage. Not following this pattern may cause the database and associated application not to function in a stable manner.
 
 When deploying to Kubernetes, to use these storage types, you need to specify the correct storage-class. Here a small table detailing which storage class to specify.
 

@@ -21,6 +21,6 @@ installEnvhandlebars() {
   else
       echo "envhandlebars not found on path, adding it"
       export PATH=$(dirname $(find ${nvmVersionSelectedPath} -type f -executable -name "envhandlebars")):$PATH
-  fi   
-    
+  fi
+
 }

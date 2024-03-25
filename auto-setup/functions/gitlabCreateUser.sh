@@ -34,6 +34,6 @@ gitlabCreateUser() {
             log_info "User ${gitlabUserName} already exists in Gitlab. Skipping creation"
         fi
 
-    fi  
-    
+    fi
+
 }

@@ -1,9 +1,9 @@
 
 
 export default function ApplicationGroupDetails(props) {
-    
+
     //const [applicationGroupDetails, setApplicationGroupDetails] = useState([]);
-    
+
 
     // useEffect(() => {
     //     axios.get('/products/productslist/'+ props.match.params.prodId).then(product => {
@@ -15,7 +15,7 @@ export default function ApplicationGroupDetails(props) {
 
     return (
         <div>
-            
+
         </div>
     )
 }

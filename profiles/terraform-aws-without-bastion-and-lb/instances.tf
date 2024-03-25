@@ -194,5 +194,3 @@ resource "aws_instance" "kx_worker" {
     Owner = "${local.owner_surname}, ${local.owner_firstname} <${local.userid}>"
   }
 }
-
-

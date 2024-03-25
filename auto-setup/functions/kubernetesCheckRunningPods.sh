@@ -17,5 +17,5 @@ checkRunningKubernetesPods() {
     log_warn "After 60 checks, the number of total pods (${totalPods}) in the ${namespace} namespace still does not equal the number of running pods (${runningPods})"
     exit 1
   fi
-  
+
 }

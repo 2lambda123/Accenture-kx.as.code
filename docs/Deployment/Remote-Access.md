@@ -36,7 +36,7 @@ Here are the three options in detail:
 #### Apache Guacamole
 
 Whilst the performance of this option is the lowest of the three, the biggest advantage is that no client tools need to be installed to access this site. All you need is a browser and a route to the KX-Main server's Guacamole port.
-It also has the advantage of being 2FA enabled, so is the most secure of the three. It is also multi-user capable, unlike with the faster NoMachine (the free version included in KX.AS.CODE). 
+It also has the advantage of being 2FA enabled, so is the most secure of the three. It is also multi-user capable, unlike with the faster NoMachine (the free version included in KX.AS.CODE).
 
 This also has the advantage of SSL encryption between the client and the Guacamole server.
 

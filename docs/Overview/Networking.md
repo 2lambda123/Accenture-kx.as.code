@@ -2,7 +2,7 @@
 
 ### Underlying Virtual Networks
 
-For the public clouds there are additional considerations such as VPCs, security groups, subnets and so on. It's too much to go into here. See the deployment guide for public clouds[](../../Deployment/Public-Clouds/) to see what is needed. 
+For the public clouds there are additional considerations such as VPCs, security groups, subnets and so on. It's too much to go into here. See the deployment guide for public clouds[](../../Deployment/Public-Clouds/) to see what is needed.
 
 Networking options are also detailed out in the [Profile Configuration guide](../../Deployment/Configuration-Options/).
 
@@ -12,7 +12,7 @@ Networking options are also detailed out in the [Profile Configuration guide](..
 !!! danger "important"
     The VirtualBox solution is the only one that is started with two NICs! This can have implication on listening services listening on the wrong one. Be sure to always have your service listening on `enp0s8`. `enp0s3` is the NAT NIC, and is not reachable from the other nodes.
 
-    If all you are doing is deploying a service to Kubernetes, then you don't need to worry about this, as it is already taken care of for the core services.  
+    If all you are doing is deploying a service to Kubernetes, then you don't need to worry about this, as it is already taken care of for the core services.
 
 ### Kubernetes Networking
 
@@ -34,7 +34,7 @@ When a node comes up, it automatically registers itself with the Bind9 instance 
 If you want to use an external DNS server for a private or cloud DNS setup, you have two options.
 
 #### Manual IP Configuration
-Use the static IP configuration method, which allows you to define both the IP address and the DNS servers to use. 
+Use the static IP configuration method, which allows you to define both the IP address and the DNS servers to use.
 
 #### Hybrid Mode
 This keeps the DNS servers receive from DHCP, and appends the KX.AS.CODE DNS servers. The dependency here is that the DHCP server is configured with the DNS server you wish to use for KX.AS.CODE.

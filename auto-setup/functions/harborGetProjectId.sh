@@ -11,5 +11,5 @@ harborGetProjectId() {
         curl -s -u 'admin:'${harborAdminPassword}'' -X GET https://${componentName}.${baseDomain}/api/v2.0/projects | jq -r '.[] | select(.name=="'${harborProjectName}'") | .project_id'
 
     fi
-    
+
 }

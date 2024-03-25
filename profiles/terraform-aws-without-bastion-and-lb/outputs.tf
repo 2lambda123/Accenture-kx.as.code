@@ -40,4 +40,3 @@ output "kx_main1_local_storage_volume_size" {
 output "kx_main1_glusterfs_storage_volume_size" {
   value = local.glusterfs_storage_volume_size
 }
-

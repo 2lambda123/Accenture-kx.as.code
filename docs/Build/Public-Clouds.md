@@ -55,13 +55,13 @@ One of the parameters is the Debian 11 AMI id to use as the base image, on top o
     export aws_ssh_username=admin
     export aws_ssh_interface=public_ip
     export aws_compute_engine_build=true
-    
+
     # Specific variables for KX-Main. Not needed for KX-Node.
     export git_source_url=https://github.com/Accenture/kx.as.code.git
     export git_source_branch=main
     export git_source_user="<your github user>"  # optional, only needed for private repositories
     export git_source_token="<your github token>"  # optional, only needed for private repositories
-    
+
     # Your AWS access key and secret
     export AWS_PACKER_ACCESS_KEY_ID="xxxxxxxxxxxxxxxxxxxxxxx"
     export AWS_PACKER_SECRET_ACCESS_KEY="xxxxxxxxxxxxxxxxxxxxxxx"
@@ -111,7 +111,7 @@ One of the parameters is the Debian 11 AMI id to use as the base image, on top o
     export aws_ssh_username=admin
     export aws_ssh_interface=public_ip
     export aws_compute_engine_build=true
-    
+
     # Your AWS access key and secret
     export AWS_PACKER_ACCESS_KEY_ID="xxxxxxxxxxxxxxxxxxxxxxx"
     export AWS_PACKER_SECRET_ACCESS_KEY="xxxxxxxxxxxxxxxxxxxxxxx"

@@ -20,4 +20,3 @@ Plugin-Developers: Tim Brown:timbrown5:
 Plugin-License-Name: MIT License
 Plugin-License-Url: https://opensource.org/licenses/MIT
 Plugin-ScmUrl: https://github.com/jenkinsci/material-theme-plugin
-

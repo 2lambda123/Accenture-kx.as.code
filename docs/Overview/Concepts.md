@@ -22,7 +22,7 @@ There are currently three variations of this.
 - [Lite](https://github.com/Accenture/kx.as.code/blob/main/auto-setup/actionQueues.json_lite)
 - [Minimal](https://github.com/Accenture/kx.as.code/blob/main/auto-setup/actionQueues.json_minimal)
 
-Placing one of these in the profile directory (ensuring to renaming it actionQueues.json if using the lite or minimal JSON files), will ensure that less core components are installed. This can be selected via the Jenkins based launcher described in the [Quick Start Guide](http://localhost:8000/Quick-Start-Guide/). 
+Placing one of these in the profile directory (ensuring to renaming it actionQueues.json if using the lite or minimal JSON files), will ensure that less core components are installed. This can be selected via the Jenkins based launcher described in the [Quick Start Guide](http://localhost:8000/Quick-Start-Guide/).
 
 
 ### Components
@@ -34,29 +34,29 @@ For examples, see the components in the CICD component category directory, on [G
 
 ### Component Category
 
-A component category is a grouping of similar solutions. Examples are `monitoring`, which includes Prometheus, the Elastic Stack and Tick Stack, and `cicd` which includes components such as Jenkins and Gitlab etc.  
+A component category is a grouping of similar solutions. Examples are `monitoring`, which includes Prometheus, the Elastic Stack and Tick Stack, and `cicd` which includes components such as Jenkins and Gitlab etc.
 See the available categories on [GitHub.com](https://github.com/Accenture/kx.as.code/tree/main/auto-setup).
 
 ### Metadata
 
-Each component has a `metadata.json` defined. This described exactly what needs to be installed for a `component` and how. 
+Each component has a `metadata.json` defined. This described exactly what needs to be installed for a `component` and how.
 
 It also describes the type of installation to process. Current supported methods are `Helm`, `ArgoCD` and `Script`.
-The `metadata.json` also describes any actions that need to be completed before the main installation process is triggered (eg. create secret) and steps needed after the main installation process is completed (eg. create users). 
+The `metadata.json` also describes any actions that need to be completed before the main installation process is triggered (eg. create secret) and steps needed after the main installation process is completed (eg. create users).
 
 Health checks needed to determine if the service is reachable are also defined in `metadata.json`. This is particularly important for the post installation steps, as they usually need the API to be available, before executing steps such as "create user".
 
-See the [guide](../../Development/Solution-Metadata/) on `metadata.json` for more information. 
+See the [guide](../../Development/Solution-Metadata/) on `metadata.json` for more information.
 
 ### Templates
 
 Templates are a group of components that are typically installed together. The components do not need to belong to the same component category.
 Example groups can be found at the following [location](https://github.com/Accenture/kx.as.code/tree/main/templates) on GitHub.
 
-You can add further templates, simply by adding another json file into this directory, and listing the components to be installed as part of this grouping. 
+You can add further templates, simply by adding another json file into this directory, and listing the components to be installed as part of this grouping.
 The components must exist in the auto-setup folder.
 
-Template groups are not just limited to things like the Elastic Stack or Tick Stack. They can also be used to integrate solutions together. For example, installing Sysdig Falco and RocketChat together as part of a template group would allow first RocketChat to be installed with a post installation step to generate a webhook to post events to a newly created Security channel. The returned webhook URL could then be used during the installation of Sysdig Falco, to setup a notification target. 
+Template groups are not just limited to things like the Elastic Stack or Tick Stack. They can also be used to integrate solutions together. For example, installing Sysdig Falco and RocketChat together as part of a template group would allow first RocketChat to be installed with a post installation step to generate a webhook to post events to a newly created Security channel. The returned webhook URL could then be used during the installation of Sysdig Falco, to setup a notification target.
 
 The important thing to note is that the components would need to be scripted in a way that they are aware of each other's existence - and behave accordingly if the condition is met - and not fail, if the condition is not met.
 

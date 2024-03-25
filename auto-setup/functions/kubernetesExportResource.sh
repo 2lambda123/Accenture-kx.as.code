@@ -11,5 +11,5 @@ kubernetesExportResource() {
     else
         kubectl get ${resourceType} ${resourceName} -n ${namespace} -o=json | jq 'del(.metadata.resourceVersion,.metadata.uid,.metadata.selfLink,.metadata.creationTimestamp,.metadata.annotations,.metadata.generation,.metadata.ownerReferences,.status)' | tee ${installationWorkspace}/${resourceName}_${resourceType}_${namespace}.json
     fi
-    
+
 }

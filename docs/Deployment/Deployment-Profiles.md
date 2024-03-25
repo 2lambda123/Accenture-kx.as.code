@@ -4,7 +4,7 @@ The concept of `deployment profiles` was introduced to support KX.AS.CODE across
 
 These deployment profiles include everything needed to start KX.AS.CODE on the respective platform.
 
-All local profiles are started with `Vagrant`, whilst cloud targeted profiles are started with `Terraform`. 
+All local profiles are started with `Vagrant`, whilst cloud targeted profiles are started with `Terraform`.
 
 !!! info
     Each profile has a `profile-config.json`, which describes exactly what should be started and how it should be configured once KX.AS.CODE comes up. See [here](../../Deployment/Configuration-Options/) for the full documentation of all the configurable profile properties.
@@ -15,7 +15,7 @@ Here is a list of the platforms for which there are currently up-to-date and tes
     Currently VirtualBox and OpenStack are the most regularly tested solutions.
 
 | Profile | Deployment via... | Supported Host OSs | Supported Hardware |
-| --- | --- | --- | --- | 
+| --- | --- | --- | --- |
 | [Parallels](https://github.com/Accenture/kx.as.code/tree/main/profiles/vagrant-parallels){:target="\_blank"} | Vagrant | MacOSX | x86_64 |
 | [VirtualBox](https://github.com/Accenture/kx.as.code/tree/main/profiles/vagrant-virtualbox){:target="\_blank"} | Vagrant | MacOSX, Linux, Windows | x86_64 |
 | [VMWare Workstation / Fusion](https://github.com/Accenture/kx.as.code/tree/main/profiles/vagrant-vmware-desktop){:target="\_blank"} | Vagrant | MacOSX, Linux, Windows | x86_64 |
@@ -25,7 +25,7 @@ Here is a list of the platforms for which there are currently up-to-date and tes
 !!! warning
     ARM based processors are currently not supported, so it is not possible to run KX.AS.CODE on a MacBook with an M1 or M2 processor, nor a Raspberry Pi. That said, work is in progress to enable it! See here[](../../Build/Raspberry-Pi-Cluster/).
 
-!!! info 
+!!! info
     There has been some testing with `VMWare vSphere` in the past, but due to lack of a test environment, the scripts haven't been updated for a while.
 
 The solution has never been tested on `GCP` or `Azure`, but there is no reason for it not to work, and it should be easy enough to do, taking the `AWS` solution as inspiration.

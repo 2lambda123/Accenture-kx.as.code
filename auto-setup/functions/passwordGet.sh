@@ -16,14 +16,14 @@ getPassword() {
   fi
 
   # Retrieve the password from GoPass
-  if [[ -n "${passwordGroup}" ]]; then 
+  if [[ -n "${passwordGroup}" ]]; then
     /usr/bin/sudo -H -i -u ${gopassUser} bash -c "gopass show --yes --password \"${baseDomain}/${passwordGroup}/${passwordName}\"" || local rc=$?
   else
     /usr/bin/sudo -H -i -u ${gopassUser} bash -c "gopass show --yes --password \"${baseDomain}/${passwordName}\"" || local rc=$?
   fi
-  
+
   if [[ ${rc} -eq 11 ]]; then
-    if [[ -n "${passwordGroup}" ]]; then 
+    if [[ -n "${passwordGroup}" ]]; then
       >&2 log_debug "Password for \"${baseDomain}/${passwordGroup}/${passwordName}\" not found. This may not be an issue if the calling script was just testing for it's existence, before deciding what to do next"
     else
       >&2 log_debug "Password for \"${baseDomain}/${passwordName}\" not found. This may not be an issue if the calling script was just testing for it's existence, before deciding what to do next"

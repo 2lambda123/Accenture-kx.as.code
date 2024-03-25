@@ -87,5 +87,5 @@ autoSetupHelmInstall() {
   else
     autoSetupClearRetryData
   fi
-  
+
 }

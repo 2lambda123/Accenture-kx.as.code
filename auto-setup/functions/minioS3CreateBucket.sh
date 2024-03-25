@@ -12,5 +12,5 @@ minioS3CreateBucket() {
         fi
 
     fi
-    
+
 }

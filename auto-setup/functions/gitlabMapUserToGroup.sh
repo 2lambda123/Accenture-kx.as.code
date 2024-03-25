@@ -33,5 +33,5 @@ gitlabMapUserToGroup() {
         fi
 
     fi
-    
+
 }

@@ -6,4 +6,3 @@ kubectl get secret kx-certificates -n ${namespace} || \
     --from-file=${installationWorkspace}/certificates/kx_root_ca.pem \
     --from-file=${installationWorkspace}/certificates/kx_intermediate_ca.pem \
     -n ${namespace}
-

@@ -38,4 +38,3 @@ for i in $(seq 0 $((numUsersToCreate - 1))); do
     fi
 
 done
-

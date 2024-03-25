@@ -23,5 +23,5 @@ mattermostCreateUser() {
         fi
 
     fi
-    
+
 }

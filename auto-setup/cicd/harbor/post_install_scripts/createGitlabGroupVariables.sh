@@ -15,4 +15,3 @@ gitlabCreateGroupVariable "REGISTRY_ROBOT_PASSWORD" "${kxRobotToken}" "${kxascod
 
 # Create variable "REGISTRY_ROBOT_USER" in KX.AS.Code group
 gitlabCreateGroupVariable "REGISTRY_ROBOT_USER" "${kxRobotUser}" "${kxascodeGroupId}"
-

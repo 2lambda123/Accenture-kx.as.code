@@ -6,7 +6,7 @@ dockerhubCreateDefaultRegcred() {
   dockerhubLogin
 
   if [[ $(cat /root/.docker/config.json | jq '.auths | has("https://index.docker.io/v1/") ') == "true" ]]; then
-   
+
     # Create secret
     kubectl get secret regcred -n ${namespace} || \
       kubectl create secret generic regcred \

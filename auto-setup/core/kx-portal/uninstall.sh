@@ -15,4 +15,3 @@ for user in ${users}
 do
     rm -f "/home/${user}/Desktop/KX.AS.CODE Portal"
 done
-

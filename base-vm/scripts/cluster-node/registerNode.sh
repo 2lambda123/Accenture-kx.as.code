@@ -510,7 +510,7 @@ checkBind9Entry() {
         return
 
     else
-        
+
         echo "Entry not valid. Returning false" >&2
         false
         return
@@ -523,7 +523,7 @@ addIpToBind9DnsServer() {
     # See if server already configured in Bind9
     bind9Entry=$(/usr/bin/sudo -H -i -u "${vmUser}" bash -c "ssh -o StrictHostKeyChecking=no ${vmUser}@${kxMainIp} \"cat /etc/bind/db.${baseDomain} | grep -E '$(hostname)'\"")
     if [[ -n ${bind9Entry} ]]; then
-        
+
         # Checking if existing entry is valid
         if checkBind9Entry "${bind9Entry}"; then
 
@@ -538,7 +538,7 @@ addIpToBind9DnsServer() {
 
             # Add entry again
             /usr/bin/sudo -H -i -u "${vmUser}" bash -c "ssh -o StrictHostKeyChecking=no ${vmUser}@${kxMainIp} \"/usr/bin/sudo sed -i '/\*.*IN.*A.*${kxMainIp}/ i $(hostname)    IN      A      ${nodeIp}' /etc/bind/db.${baseDomain}\""
-            
+
             # Return false to ensure re-check of DNS entry
             false
             return

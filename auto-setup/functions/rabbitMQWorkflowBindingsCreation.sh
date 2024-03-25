@@ -7,5 +7,5 @@ createRabbitMQWorkflowBindings() {
     fi
   done
 
-  
+
 }

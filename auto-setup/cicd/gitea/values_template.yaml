@@ -76,7 +76,7 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
-  tls: 
+  tls:
     - hosts:
         - {{componentName}}.{{baseDomain}}
   # Mostly for argocd or any other CI that uses `helm template | kubectl apply` or similar
