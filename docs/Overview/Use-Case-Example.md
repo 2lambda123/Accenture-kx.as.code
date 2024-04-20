@@ -39,5 +39,3 @@ The server side components are not available in the public version of KX.AS.CODE
 ![](../assets/images/devWorkstationHybris2.png)
 
 ![](../assets/images/devWorkstationMssqlServer1.png)
-
-

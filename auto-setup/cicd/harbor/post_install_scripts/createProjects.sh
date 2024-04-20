@@ -8,4 +8,3 @@ harborCreateProject "kx-as-code"
 
 # Create public devops project in Harbor via API
 harborCreateProject "devops"
-

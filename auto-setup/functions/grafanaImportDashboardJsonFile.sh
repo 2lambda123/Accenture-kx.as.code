@@ -11,7 +11,7 @@ grafanaImportDashboardJsonFile() {
         # Ensure Grafana id is not present in JSON, else the import will fail
         jq '.dashboard.id = null' "${dashboardJsonFilePath}" > "${tempDashboardJsonFilePath}" && mv "${tempDashboardJsonFilePath}" "${processedDashboardJsonFile}"
         jq '.id = null' "${processedDashboardJsonFile}" > "${tempDashboardJsonFilePath}" && mv "${tempDashboardJsonFilePath}" "${processedDashboardJsonFile}"
-        
+
         # Do moustache variable replacements
         envhandlebars <"${processedDashboardJsonFile}" >"${tempDashboardJsonFilePath}" && mv "${tempDashboardJsonFilePath}" "${processedDashboardJsonFile}"
 

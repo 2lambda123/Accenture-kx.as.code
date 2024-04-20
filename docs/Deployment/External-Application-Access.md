@@ -5,10 +5,10 @@ Check the following [page](../../Deployment/Remote-Access/) for accessing the re
 This page is particularly relevant if you have gone for a minimal setup with the remote desktop disabled.
 
 There are just three things that need to be performed.
- 
+
 - Create a NAT rule within your virtualization solution, from your host machine to the KX-Main1 VM on port 443 (source and destination port) (already done automatically, just adding it here for completeness)
 - Install the KX.AS.CODE certificate authority root and intermediate root CAs to your certificate trust store
-- Add host entries to your `/etc/hosts` for Linux/Mac or `C:\Windows\System32\drivers\etc\hosts` for Windows 
+- Add host entries to your `/etc/hosts` for Linux/Mac or `C:\Windows\System32\drivers\etc\hosts` for Windows
 
 All the files you need are made available to you during the initial core setup of KX.AS.CODE.
 
@@ -29,7 +29,7 @@ Once done, if you access one of the applications in the hosts file, you are like
 
 ![](../assets/images/external_access_5.png){: .zoom}
 
-The error that "Your connection is not private" is normal, as you have likely not yet imported the KX.AS.CODE certificate authority root certificates. The SSL section below will explain how to do this.  
+The error that "Your connection is not private" is normal, as you have likely not yet imported the KX.AS.CODE certificate authority root certificates. The SSL section below will explain how to do this.
 
 !!! warning
     If you already had something running on port 443, you will need to find out what port is set instead. This is because vagrant is set to automatically assign a new port, in case the one it has been requested to listen on, is already blocked by another service.
@@ -37,7 +37,7 @@ The error that "Your connection is not private" is normal, as you have likely no
 !!! tip
     You could of course also expose the DNS server running on KX-Main1, again, by creating a NAT rule for it, and then updating your network settings to also use the KX.AS.CODE DNS server for domain name resolution.
 
-    If you are running in a cloud, you may want to create a DNS entry in your Route53 or equivalent service, for reaching the NGINX ingress controller. Don't forget you may also need to update your firewall rules. 
+    If you are running in a cloud, you may want to create a DNS entry in your Route53 or equivalent service, for reaching the NGINX ingress controller. Don't forget you may also need to update your firewall rules.
 
 ### SSL
 When KX.AS.CODE is deployed, it creates a new `Certificates Authority`. All SSL certificates created for KX.AS.CODE are signed with this CA.
@@ -74,4 +74,3 @@ Certificate chain complete
 Gitlab now loading with a trusted certificate and the error message has gone
 
 ![](../assets/images/external_access_7.png){: .zoom}
-

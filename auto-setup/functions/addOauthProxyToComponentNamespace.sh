@@ -3,7 +3,7 @@ addOauthProxyToComponentNamespace() {
   local ingressName=${1:-"${componentName}-ingress"}
   local ingressNamespace=${2:-"${namespace}"}
   local ingresServiceName=${3:-"${componentName}"}
-  local separateExternalAccess=${4:-"true"} # if true, will restrict access of original domain to local domain only and create a new FQDN (with -ext) for remote access via OAUTH only. 
+  local separateExternalAccess=${4:-"true"} # if true, will restrict access of original domain to local domain only and create a new FQDN (with -ext) for remote access via OAUTH only.
   # If separateExternalAccess=false, then Keycloak OAUTH will be triggered on original domain even when accessed locally inside VM
 
   if [[ "${separateExternalAccess}" == "true" ]]; then

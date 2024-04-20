@@ -15,7 +15,7 @@ if [[ "${kubeOrchestrator}" == "k8s" ]]; then
   /usr/bin/sudo curl -fsSL https://dl.k8s.io/apt/doc/apt-key.gpg | apt-key add -
   echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | /usr/bin/sudo tee /etc/apt/sources.list.d/kubernetes.list
   echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | /usr/bin/sudo tee /etc/apt/sources.list.d/kubernetes.list
-  
+
   # Read Kubernetes version to be installed
   kubeVersion=$(cat ${installationWorkspace}/versions.json | jq -r '.kubernetes')
   for i in {1..5}

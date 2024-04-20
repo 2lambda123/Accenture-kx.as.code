@@ -11,5 +11,5 @@ gitlabGetGroupId() {
         curl -s --header "Private-Token: ${personalAccessToken}" https://gitlab.${baseDomain}/api/v4/groups | jq '.[] | select(.name=="'${groupName}'") | .id'
 
     fi
-   
+
 }

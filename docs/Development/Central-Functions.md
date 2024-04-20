@@ -2,11 +2,11 @@
 
 The functions below can be used when creating scripts to install new solutions in the [auto-setup](https://github.com/Accenture/kx.as.code/tree/main/auto-setup){:target="\_blank"} folder.
 
-!!! info 
+!!! info
     The core setup functions are used during the initial KX.AS.CODE deployment only, and should not be used for regular component installations, eg. those in the other category folders, such as cicd, collaboration, monitoring, and so on.
 
 !!! tip
-    You can override functions by copying them to the auto-setup/functions-custom folder. This is 
+    You can override functions by copying them to the auto-setup/functions-custom folder. This is
     recommended, to avoid upgrade issues in future.
 
     As well as overriding existing functions, new custom functions should also be dropped to the functions-custom folder.
@@ -95,7 +95,7 @@ This executes a health-check based on the application URL [0] found in the `meta
 !!! danger "Important"
     Note. You must deploy the `ArgoCD` application, before executing any component installations that depend on `ArgoCD`
 
-!!! info 
+!!! info
     There are no inputs to this function, as all the needed data comes from the component's `metadata.json`.
 
 !!! example
@@ -127,18 +127,18 @@ This executes a health-check based on the application URL [0] found in the `meta
 ### autoSetupHelmInstall()
 :material-git: Location: [auto-setup/functions/autoSetupHelmInstall.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/autoSetupHelmInstall.sh){:target="\_blank"}
 
-!!! info 
+!!! info
     There are no inputs to this function, as all the needed data comes from the component's `metadata.json` and `values_template.yaml` file.
 
 !!! example
     Here an example extract from ArgoCD's `metadata.json`"
-    
-    The JSON below defines the parameters needed to execute a deployment via helm. 
+
+    The JSON below defines the parameters needed to execute a deployment via helm.
 
     The JSON is described in more detail on a page dedicated to `metadata.json`, so will only be described high level here.
 
     ```json linenums="1"
-    {    
+    {
         "helm_params": {
             "repository_url": "https://argoproj.github.io/argo-helm",
             "repository_name": "argo/argo-cd",
@@ -212,7 +212,7 @@ Finally, a validation check is done with [kubeval](https://kubeval.instrumenta.d
 Logs into ArgoCD before performing any ArgoCD specific actions.
 
 !!! warning
-    This function probably still works, but needs adjusting to take into account the new credential management process. 
+    This function probably still works, but needs adjusting to take into account the new credential management process.
 
 !!! note "Usage"
     `argoCdLogin`
@@ -359,7 +359,7 @@ Calling this function will check if a standalone KX.AS.CODE has been started. If
 ### configureBindDns()
 :material-git: Location: [auto-setup/functions/configureBindDnsServer.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/configureBindDnsServer.sh){:target="\_blank"}
 
-Sets up the domain names for base services and KX.AS.CODE administration tools, so that these can be called via their domain name, instead of `localhost:<port>`. 
+Sets up the domain names for base services and KX.AS.CODE administration tools, so that these can be called via their domain name, instead of `localhost:<port>`.
 Initial sub-domains setup by this function are:
 
 | Domain Name | Purpose |
@@ -402,9 +402,9 @@ If there is enough demand for another language to be added to the base setup, we
 
 Configures the network of the main or node VMs when they come up. If `fixed` IP addresses have been set in the `profile-config.json`, these will be configured in the virtual NICs. If not, an IP address will be retrieved via DHCP.
 For DNS there are 2 options. `hybrid` and `fixed`. Hybrid will configure the NICs with both the dynamically retrieved DNS servers, as well as the local BIND DNS.
-Fixed will set the DNS servers configured in `profile-config.json` only. 
+Fixed will set the DNS servers configured in `profile-config.json` only.
 
-!!! danger "Important" 
+!!! danger "Important"
     Important, in the case of a fixed DNS setting, ensure that the first one points to the IP of KX-Main1.
 
 The KX.AS.CODE virtualization profiles are currently setup as follows:
@@ -436,8 +436,8 @@ Creates directory `/vagrant/kx-external-access` (if local virtualization is in u
 ### disableLinuxDesktop()
 :material-git: Location: [auto-setup/functions/disableLinuxDesktop.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/disableLinuxDesktop.sh){:target="\_blank"}
 
-If disableLinuxDesktop was set to true in `profile-config.json`, this will disable the desktop during the initial KX.AS.CODE setup on first start abd reboot into the CLI. 
-!!! tip 
+If disableLinuxDesktop was set to true in `profile-config.json`, this will disable the desktop during the initial KX.AS.CODE setup on first start abd reboot into the CLI.
+!!! tip
     A script is dropped into `usr/share/kx.as.code/workspace` for re-enabling the desktop. Alternatively, it is also possible enter `startx` at the command line, to temporarily enable the desktop, but keep the default configuration.
 
 !!! note "Usage"
@@ -446,7 +446,7 @@ If disableLinuxDesktop was set to true in `profile-config.json`, this will disab
 ### getComponentInstallationProperties()
 :material-git: Location: [auto-setup/functions/getComponentInstallationProperties.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/getComponentInstallationProperties.sh){:target="\_blank"}
 
-Sets up the base parameters for the component in `auto-setup` being installed. All installation scripts should reference these standard variables, in order to ensure the solution continues functioning in future, if for example, there was a change to the base `auto-setup` directory structure. 
+Sets up the base parameters for the component in `auto-setup` being installed. All installation scripts should reference these standard variables, in order to ensure the solution continues functioning in future, if for example, there was a change to the base `auto-setup` directory structure.
 Variables exported as shell environment variables for use in scripts are the following:
 
 | Variable name | Description |
@@ -467,7 +467,7 @@ As well as the above, all environment variables defined in `metadata.json` are a
 :material-git: Location: [auto-setup/functions/getGlobalVariables.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/getGlobalVariables.sh){:target="\_blank"}
 
 Exposes all global variables in `auto-setup/globalVariables.json`, so that they can be referenced  in scripts.
-!!! info 
+!!! info
     Currently the variables defined in `globalVariables.json` are the following:
     ```json linenums="1"
     {
@@ -506,7 +506,7 @@ This script ensures that subsequent scripts know which NICs to avoid listening o
 :material-git: Location: [auto-setup/functions/getProfileConfiguration.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/getProfileConfiguration.sh){:target="\_blank"}
 
 ??? info "Example profile-config.json file (click to expand)"
-    Here is an example profile-config.json file, which will be read and exported to environment variables.    
+    Here is an example profile-config.json file, which will be read and exported to environment variables.
     ```json linenums="1"
     {
         "config": {
@@ -629,7 +629,7 @@ The Kubernetes and KX.AS.CODE versions are exported to `kxVersion` and `kubeVers
 :material-git: Location: [auto-setup/functions/installEnvhandlebars.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/installEnvhandlebars.sh){:target="\_blank"}
 
 In some cases, [mo](https://mustache.github.io/){:target="\_blank"} is used for replacing `{{ mustache }}` placeholders in templates. However, when there needs to be more advanced processing, eg. for escaping a curl bracket, the node [envhandlebars](https://www.npmjs.com/package/envhandlebars){:target="\_blank"} utility is used instead.
-This function installs `envhandlebars`. 
+This function installs `envhandlebars`.
 
 !!! note "Usage"
     `installEnvhandlebars`
@@ -666,7 +666,7 @@ If a component installation is not in progress, the generic logfile name is used
 ### updateHostFileForExternalUse()
 :material-git: Location: [auto-setup/functions/updateHostFileForExternalUse.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/updateHostFileForExternalUse.sh){:target="\_blank"}
 
-This function is automatically run with every application install. It makes all configured Kubernetes ingress endpoints available in the kx-external-access directory. See also the function `createExternalAccessDirectory()`.    
+This function is automatically run with every application install. It makes all configured Kubernetes ingress endpoints available in the kx-external-access directory. See also the function `createExternalAccessDirectory()`.
 
 !!! note "Usage"
     updateHostFileForExternalUse
@@ -731,7 +731,7 @@ The password group is only needed if the password was created with a password gr
 ### generateApiKey()
 :material-git: Location: [auto-setup/functions/apiKeyGenerate.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/apiKeyGenerate.sh){:target="\_blank"}
 
-!!! hint 
+!!! hint
     Best just to use `apiKeyManage`, which does all the get, generate and push in one go, with validation checks etc
 
 Generates a 32 character string that is API compatible. eg. no special characters - just alpha-numeric characters.
@@ -776,7 +776,7 @@ To keep issues to a minimum with special characters, only the following special 
 ### getPassword()
 :material-git: Location: [auto-setup/functions/passwordGet.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/passwordGet.sh){:target="\_blank"}
 
-!!! hint 
+!!! hint
     Best just to use `passwordManage`, which does all the get, generate and push in one go, with validation checks etc
 
 Gets the password as stored in GoPass by passing the name of the password generated previously.
@@ -793,7 +793,7 @@ Gets the password as stored in GoPass by passing the name of the password genera
 :material-git: Location: [auto-setup/functions/passwordManage.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/passwordManage.sh){:target="\_blank"}
 
 Saves the developer the hassle of making several calls and writing their own validations.
-This checks if the password is already in GoPass, and creates it if not, subsequently returning it. If it already exists, the password is retrieved from GoPass and again, returned. 
+This checks if the password is already in GoPass, and creates it if not, subsequently returning it. If it already exists, the password is retrieved from GoPass and again, returned.
 
 !!! note "Usage"
     `passwordManage "<name of password>" "<password group>"`
@@ -806,10 +806,10 @@ This checks if the password is already in GoPass, and creates it if not, subsequ
 ### pushPassword()
 :material-git: Location: [auto-setup/functions/passwordPush.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/passwordPush.sh){:target="\_blank"}
 
-!!! hint 
+!!! hint
     Best just to use `passwordManage`, which does all the get, generate and push in one go, with validation checks etc
 
-Pushes the password to GoPass. 
+Pushes the password to GoPass.
 
 !!! note "Usage"
     `passwordPush "<name of password>" "<password>" "<password group>"`
@@ -870,7 +870,7 @@ The secret is created in the Kubernetes namespace of the current solution being 
 ### loginToCoreRegistry()
 :material-git: Location: [auto-setup/functions/dockerCoreRegistryLogin.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/dockerCoreRegistryLogin.sh){:target="\_blank"}
 
-!!! tip 
+!!! tip
     This is usually carried out by the other docker-registry functions, and rarely needs to be called directly.
 
 !!! note "Usage"
@@ -1038,7 +1038,7 @@ If the output filename is not provided, the filename provided in the URL will be
 It is recommended to add the `version` and `checksum` to the component's `metadata.json` as environment variables, and then reference those in the installation script, rather than hard coding both.
 
 !!! example
-    
+
         metadata.json:
         ```json linenums="1"
         {
@@ -1269,7 +1269,7 @@ For general documentation on how Keycloak IAM/SSO works, read the following [doc
         fullPath="true"
         scopes="groups" # space separated if multiple scopes need to be created/associated with the client
         enableKeycloakSSOForSolution "${redirectUris}" "${rootUrl}" "${baseUrl}" "${protocol}" "${fullPath}" "${scopes}"
-        ``` 
+        ```
 
     !!! example
 
@@ -1329,7 +1329,7 @@ Creates a client in Keycloak for the component.
 ### createKeycloakClientScope()
 :material-git: Location: [auto-setup/functions/keycloakCreateClientScope.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/keycloakCreateClientScope.sh){:target="\_blank"}
 
-Creates a new client scope for a given client id in Keycloak. 
+Creates a new client scope for a given client id in Keycloak.
 
 !!! note "Usage"
     `createKeycloakClientScope "<clientId>" "<protocol>" "<scope>"`
@@ -1389,7 +1389,7 @@ Create a new user in Keycloak.
 ### enableKeycloakSSOForSolution()
 :material-git: Location: [auto-setup/functions/keycloakEnableSolution.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/keycloakEnableSolution.sh){:target="\_blank"}
 
-!!! tip 
+!!! tip
     This is usually the only Keycloak function you need to call when creating a new client in Keycloak, as this function, given all the inputs passed to it, takes care to call all the other needed functions.
 
 !!! note "Usage"
@@ -1440,7 +1440,7 @@ Get the client secret for a given client.
 
 Login to Keycloak. This is required before launching any Keycloak CLI commands .
 
-!!! info 
+!!! info
     This rarely needs to be called directly, as the other Keycloak functions already call this function before interacting with Keycloak.
 
 !!! example
@@ -1545,7 +1545,7 @@ Calls the Kubernetes health API. This is important for some procecesses that res
 ### waitForKubernetesResource()
 :material-git: Location: [auto-setup/functions/waitForKubernetesResource.sh](https://github.com/Accenture/kx.as.code/tree/main/auto-setup/functions/waitForKubernetesResource.sh){:target="_blank"}
 
-This checks and waits for a Kubernetes resource to become available. This is needed if a step, such as `kubernetesExportResource()` for example, needs a resource to be available before it can be successfully executed. 
+This checks and waits for a Kubernetes resource to become available. This is needed if a step, such as `kubernetesExportResource()` for example, needs a resource to be available before it can be successfully executed.
 
 !!! note "Usage"
     `waitForKubernetesResource "<resource name>" "<kubernetes resource type>" "<kubernetes namespace>"`
@@ -1809,7 +1809,7 @@ Send a notification to both the Linux desktop and to the KX-Portal via the Rabbi
 !!! note "Usage"
 `notifyAllChannels "<message>" "<log_level>" "<action_status>"`
 
-| Field Name | Description | Possible Values | 
+| Field Name | Description | Possible Values |
 | ---------------|----------------|----------------|
 | message | The alert text that should be displayed on the desktop or in the KX-Portal | Free-form text. No restriction. |
 | log_level | The type of notification dialogue to show | info (shows as blue), warn (orange) or error (red) |
@@ -1851,4 +1851,3 @@ Creates the rabbitMQ workflow bindings if not already present.
 
 !!! note "Usage"
 `createRabbitMQWorkflowBindings`
-

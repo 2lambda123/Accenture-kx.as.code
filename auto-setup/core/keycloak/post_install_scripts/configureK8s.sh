@@ -64,4 +64,3 @@ elif [[ "${kubeOrchestrator}" == "k3s" ]]; then
     # Restart K3s service to apply the settings
     /usr/bin/sudo systemctl restart k3s.service
 fi
-

@@ -8,7 +8,7 @@ Welcome to the KX.AS.CODE workstation. This virtual workstation was initially cr
 Since then, due to the increase in the power and feature-set of KX.AS.CODE, the use case has expanded to the following more complex usage (see [use case example](../../Overview/Use-Case-Example/)):
 
 * Dynamic on-demand provisioning/destruction of test environments in the public/private cloud
-* End-to-end developer workstation to enhance local quality assurance capabilities 
+* End-to-end developer workstation to enhance local quality assurance capabilities
 
 !!! tip
     KX.AS.CODE was built with the belief that playing and experimentation is the best way to learn new tricks and ultimately innovate.
@@ -86,7 +86,7 @@ Once done configuring KX.AS.CODE in the launcher, you can review the settings an
 ![](assets/images/jenkins_minimal_setup5.png){: .zoom}
 
 ### Login screen
-Depending on whether the defaults were changed or not, you can either log in with your own user, or the default `kx.hero`. 
+Depending on whether the defaults were changed or not, you can either log in with your own user, or the default `kx.hero`.
 
 Additional users will also be available if applied before launching KX.AS.CODE. See the [User Management Guide](Deployment/User-Management/).
 
@@ -106,7 +106,7 @@ The tools for administering some elements of KX.AS.CODE. More details will be pu
 
 ### Installed applications
 
-The applications folder show the icons of the applications that have been installed so far and are available to launch. Use `GoPoass` to get the password for accessing the application. 
+The applications folder show the icons of the applications that have been installed so far and are available to launch. Use `GoPoass` to get the password for accessing the application.
 
 ![](assets/images/kx.as.code_applications.png){: .zoom}
 
@@ -162,7 +162,7 @@ Since KX.AS.CODE is all about sharing knowledge as code, a pre-configured VSCode
 
 The KX.AS.CODE portal makes adding and removing applications easier, and provides status on current installed items.
 
-!!! warning 
+!!! warning
     The portal is still in ALPHA, so may not always behave as expected. The basics such as installing `components` and executing `tasks` should be OK.
 
 ![](assets/images/kx.as.code_portal.png){: .zoom}
@@ -193,5 +193,3 @@ See the [manual installations](../../Deployment/Manual-Provisioning/#installatio
 We are happy to receive contributions, ideas and dare I say it, bug fixes or suggestions on how to do things better! We never stop learning! :nerd_face:
 
 For more details on how you can contribute to the project, checkout the [CONTRIBUTE.md](Development/Contribution-Guidelines/) file
-
-

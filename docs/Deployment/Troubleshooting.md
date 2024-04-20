@@ -95,4 +95,4 @@ To make things easier, the KX.AS.CODE Git repositories are pre-configured into t
 *Solution 2:*
 - Execute `pollActionQueue.sh`
     - ```$ /usr/share/kx.as.code/git/kx.as.code/auto-setup/pollActionQueue.sh```
-    - *Note:* Run as sudo user inside KX.AS Code VM. May need to disconnect from VPN. 
+    - *Note:* Run as sudo user inside KX.AS Code VM. May need to disconnect from VPN.

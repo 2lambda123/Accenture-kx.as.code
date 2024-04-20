@@ -14,7 +14,7 @@ keycloakUpdateRedirectUris() {
             # Call function to login to Keycloak
             keycloakLogin
 
-            # Get current client 
+            # Get current client
             local existingRedirectUris=$(kubectl -n keycloak exec ${kcPod}  --container ${kcContainer} -- \
                 ${kcAdmCli} get clients | jq -r '.[] | select(.clientId=="'${clientId}'") | .redirectUris')
 
@@ -25,7 +25,7 @@ keycloakUpdateRedirectUris() {
                 if [[ "${existingRedirectUri}" == "${redirectUriToAdd}" ]]; then
                     local alreadyExists="true"
                     break
-                fi            
+                fi
             done
 
             # Add uri to clients redirectUris list if not existing already
@@ -45,5 +45,5 @@ keycloakUpdateRedirectUris() {
         fi
 
     fi
-    
+
 }

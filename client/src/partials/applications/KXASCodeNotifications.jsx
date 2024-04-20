@@ -48,7 +48,7 @@ export default function KXASCodeNotifications() {
               let message = JSON.parse(response.data[0].payload).message;
               let logLevel = JSON.parse(response.data[0].payload).log_level;
 
-              notify(message, logLevel);  
+              notify(message, logLevel);
             }
           } catch (err) {
             axios.get("http://localhost:8000/mock/api/queues/notification_queue");

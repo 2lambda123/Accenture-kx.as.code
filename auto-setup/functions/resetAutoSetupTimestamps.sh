@@ -4,5 +4,5 @@ resetAutoSetupTimestamps() {
     autoSetupStartEpochTimestamp=""
     autoSetupEndEpochTimestamp=""
     autoSetupDuration=""
-    
+
 }

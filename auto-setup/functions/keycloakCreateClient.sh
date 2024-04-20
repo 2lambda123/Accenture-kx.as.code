@@ -35,5 +35,5 @@ createKeycloakClient() {
         fi
 
     fi
-    
+
 }

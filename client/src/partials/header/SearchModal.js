@@ -5,7 +5,7 @@ import Transition from '../../utils/Transition.js';
 function SearchModal() {
 
   const [searchOpen, setSearchOpen] = useState(false);
-  
+
   const trigger = useRef(null);
   const searchContent = useRef(null);
   const searchInput = useRef(null);

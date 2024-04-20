@@ -8,7 +8,7 @@
 	.st3{fill:#4870FF;}
 	.st4{fill:#0D1117;}
 
-    
+
     .floating-cube {
         animation: floatAnim 5s ease-in-out infinite;
 
@@ -72,7 +72,7 @@
     -webkit-transform: rotate(5deg);
     -o-transform: rotate(5deg);
     transform: rotate(5deg);
-           
+
         }
         100% {
           transform: translate(0px,0px);

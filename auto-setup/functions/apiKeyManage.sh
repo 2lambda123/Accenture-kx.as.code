@@ -1,5 +1,5 @@
 managedApiKey() {
-  
+
   passwordName=${1}
   passwordGroup=${2:-}
 
