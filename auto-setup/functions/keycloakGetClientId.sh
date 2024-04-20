@@ -19,7 +19,7 @@ getKeycloakClientId() {
 
 	    log_debug "Command: kubectl -n ${kcNamespace} exec ${kcPod} --container ${kcContainer} -- ${kcAdmCli} get clients --fields id,clientId -r ${kcRealm} | jq -r '.[] | select(.clientId==\"${clientName}\") | .id' | wc -l"
 	    log_debug "Installed Keycloak clients: $(kubectl -n ${kcNamespace} exec ${kcPod} --container ${kcContainer} -- ${kcAdmCli} get clients --fields id,clientId -r ${kcRealm})"
-            if ! (( $(kubectl -n ${kcNamespace} exec ${kcPod} --container ${kcContainer} -- ${kcAdmCli} get clients --fields id,clientId -r ${kcRealm} | jq -r '.[] | select(.clientId=="'${clientName}'") | .id' | wc -l) )); then 
+            if ! (( $(kubectl -n ${kcNamespace} exec ${kcPod} --container ${kcContainer} -- ${kcAdmCli} get clients --fields id,clientId -r ${kcRealm} | jq -r '.[] | select(.clientId=="'${clientName}'") | .id' | wc -l) )); then
                 >&2 log_info "Keycloak client for ${clientName} does not exit. Are you sure it was already created?"
                 false
                 return
@@ -32,6 +32,6 @@ getKeycloakClientId() {
 
         fi
 
-    fi  
-    
+    fi
+
 }

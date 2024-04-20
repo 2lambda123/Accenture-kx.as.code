@@ -1,7 +1,7 @@
 # Authors
 
 Here a complete list of contributors to KX.AS.CODE to date.
-The listed is ordered by number of commits. 
+The listed is ordered by number of commits.
 
 Everyone here played a role in making KX.AS.ODE the great product that it is today, so thanks to all of you, regardless of how large or small the contribution!
 
@@ -33,7 +33,7 @@ Everyone here played a role in making KX.AS.ODE the great product that it is tod
 
 ### Additional Contributors (not through Github.com)
 
-- Hemlata Kalvani - contributed the ArgoCD, FluxCD, Jenkins applications in the original version of KX.AS.CODE. 
+- Hemlata Kalvani - contributed the ArgoCD, FluxCD, Jenkins applications in the original version of KX.AS.CODE.
 - Sin Hegde - largely responsible for the user experience in the original KX-Portal.
 - Anish Thodivial [@anishthodivial](https://github.com/anishthodivial) - sounding board for new ideas and thinking of new ways to use KX.AS.CODE. Always great to receive your feedback.
 - Niklas Giesenkirchen - contributed the Atlassian applications in the original version of KX.AS.CODE.

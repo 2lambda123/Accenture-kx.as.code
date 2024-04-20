@@ -16,7 +16,7 @@ executePostInstallScripts() {
     else
       echo "Executing post-install script ${installComponentDirectory}/post_install_scripts/${script}"
       log_info "Executing post-install script ${installComponentDirectory}/post_install_scripts/${script}"
-     
+
       # Unblock execution if set to true and script to be executed matches script to be retried
       if [[ "${blockScriptExecution}" == "true" ]] && [[ ${retryScript} == ${script} ]]; then
         blockScriptExecution="false"

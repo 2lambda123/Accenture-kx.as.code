@@ -4,5 +4,5 @@ createRabbitMQExchange() {
   if [ -z "${exchangeExists}" ]; then
     rabbitmqadmin declare exchange name=action_workflow type=direct
   fi
-  
+
 }

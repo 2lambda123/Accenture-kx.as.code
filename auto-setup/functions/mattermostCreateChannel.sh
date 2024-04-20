@@ -26,5 +26,5 @@ mattermostCreateChannel() {
         fi
 
     fi
-    
+
 }

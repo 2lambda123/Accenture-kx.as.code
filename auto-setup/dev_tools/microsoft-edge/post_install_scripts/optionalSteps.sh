@@ -31,7 +31,7 @@ updateShortcuts() {
         done
         IFS=$OLD_IFS
     done
-}  
+}
 
 # Optionally Remove Chrome Browser. This depends on environment variable set in metadata.json
 if [[ "${removeChrome}" == "true" ]]; then

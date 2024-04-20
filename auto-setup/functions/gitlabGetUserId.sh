@@ -11,5 +11,5 @@ gitlabGetUserId() {
         curl -s --header "Private-Token: ${personalAccessToken}" https://gitlab.${baseDomain}/api/v4/users | jq -r '.[] | select (.username=="'${username}'") | .id'
 
     fi
-    
+
 }

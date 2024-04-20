@@ -298,7 +298,7 @@ packer build -force -only kx.as.code-node-openstack \
   -var openstack_security_groups=default \
   -var ssh_keypair_name=packer-build \
   ./kx-node-cloud-profiles.json
-  
+
 ## Restarting OpenStack in case of issues
 ```bash
 # Optionally restart network if connectivity issues start appearing, such as DNS timeout etc
@@ -375,4 +375,3 @@ openstack router show public
 # Configure DNS
 openstack subnet set --dns-nameserver 8.8.8.8  --dns-nameserver 8.8.4.4 --dns-nameserver 1.1.1.1 shared-subnet
 ```
-

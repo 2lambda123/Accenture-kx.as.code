@@ -10,5 +10,5 @@ minioS3Initialize() {
         log_debug "$(mc config host add myminio https://minio-s3.${baseDomain} ${minioAccessKey} ${minioSecretKey} --api S3v4)"
 
     fi
-    
+
 }

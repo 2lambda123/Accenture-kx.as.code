@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Download PyCharm 
+# Download PyCharm
 downloadFile "https://download.jetbrains.com/python/pycharm-community-${pycharmVersion}.tar.gz" \
     "${pycharmChecksum}" \
     "${installationWorkspace}/pycharm-community-${pycharmVersion}.tar.gz" || rc=$?
@@ -9,7 +9,7 @@ if [[ ${rc} -ne 0 ]]; then
     exit $rc
 fi
 
-# Untar to base user's home folder 
+# Untar to base user's home folder
 mkdir -p /home/${baseUser}/pycharm
 tar xvzf ${installationWorkspace}/pycharm-community-${pycharmVersion}.tar.gz -C /home/${baseUser}/pycharm --strip-components=1
 chown -R ${baseUser}:${baseUser} /home/${baseUser}/pycharm

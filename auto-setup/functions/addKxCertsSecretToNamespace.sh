@@ -5,5 +5,5 @@ addKxCertsSecretToNamespace() {
         kubectl create secret generic kx.as.code-wildcard-cert \
         --from-file=${installationWorkspace}/kx-certs \
         --namespace=${namespace}
-        
+
 }

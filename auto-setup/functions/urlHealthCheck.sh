@@ -20,5 +20,5 @@ checkUrlHealth() {
   if [[ ${urlStatus} == "NOK" ]]; then
     log_error "Health checks for ${urlToCall} ended in error. Check the logs and try again"
   fi
-  
+
 }

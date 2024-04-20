@@ -20,5 +20,5 @@ populateActionQueuesRabbitMq() {
       mv ${installationWorkspace}/actionQueues.json.tmp ${installationWorkspace}/actionQueues.json
       sleep 1
   done
-  
+
 }

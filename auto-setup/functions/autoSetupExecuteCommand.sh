@@ -2,7 +2,7 @@ autoSetupExecuteCommand() {
 
     local command=("$@")
     local callerScript="${BASH_SOURCE[1]}"
-    
+
     echo "Bash variable array #: ${#command[@]}"
 
     if [[ ${#command[@]} -gt 1 ]]; then

@@ -27,7 +27,7 @@ for i in {1..10}; do
   else
     kubectl apply -f ${installationWorkspace}/calico.yaml
   fi
-  
+
   if [[ -z $(which raspinfo) ]]; then
     kubectl -n kube-system set env daemonset/calico-node FELIX_IGNORELOOSERPF=true
   fi

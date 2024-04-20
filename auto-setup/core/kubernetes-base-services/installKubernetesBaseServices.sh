@@ -29,12 +29,12 @@ EOF
 
         # As Kubernetes 1.24 no longer used Docker, need to install containerd
         # Not using containderd package from Debian, as it is only at v1.4.13
-        # Using containerd.io from Docker repository instead, which includes containerd v1.6.6   
+        # Using containerd.io from Docker repository instead, which includes containerd v1.6.6
         # See https://containerd.io/releases/ for details on matching containerd versions with versions of Kubernetes
         /usr/bin/sudo apt-get install -y containerd.io
         /usr/bin/sudo containerd config default | /usr/bin/sudo tee /etc/containerd/config.toml
         /usr/bin/sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
-        /usr/bin/sudo systemctl restart containerd        
+        /usr/bin/sudo systemctl restart containerd
 
         # Inititalise Kubernetes
         /usr/bin/sudo kubeadm init --apiserver-advertise-address=${mainIpAddress} --pod-network-cidr=20.96.0.0/12 --upload-certs --control-plane-endpoint=api-internal.${baseDomain}:6443 --apiserver-cert-extra-sans=api-internal.${baseDomain},localhost,127.0.0.1,${mainIpAddress},$(hostname)
@@ -50,8 +50,8 @@ EOF
         /usr/bin/sudo systemctl restart kubelet
 
         # Call function to check Kubernetes Health
-        kubernetesHealthCheck 
-        
+        kubernetesHealthCheck
+
         export kubeConfigFile=/etc/kubernetes/admin.conf
     else
 
@@ -68,7 +68,7 @@ EOF
         INSTALL_K3S_VERSION=${k3sVersion} INSTALL_K3S_EXEC="--disable servicelb --disable traefik --flannel-backend=none --disable-network-policy --cluster-cidr 10.20.76.0/16 --cluster-init --node-ip ${mainIpAddress} --node-external-ip ${mainIpAddress} --bind-address ${mainIpAddress} --tls-san api-internal.${baseDomain} --advertise-address ${mainIpAddress} ${taintMasterNodeOption}" bash ${installationWorkspace}/k3s-install.sh
 
         # Call function to check Kubernetes Health
-        kubernetesHealthCheck  
+        kubernetesHealthCheck
 
         # Wait for storage class "local-path" to be available by K3s before proceeeding to update it
         waitForKubernetesResource "local-path" "storageclass"

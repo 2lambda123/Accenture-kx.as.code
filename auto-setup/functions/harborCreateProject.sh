@@ -13,7 +13,7 @@ harborCreateProject() {
 
         # Get Harbor Admin Password
         export harborAdminPassword=$(managedApiKey "harbor-admin-password" "harbor")
-        
+
         # Create project in Habor via API
         export harborProjectId=$(curl -s -u 'admin:'${harborAdminPassword}'' -X GET https://harbor.${baseDomain}/api/v2.0/projects | jq -r '.[] | select(.name=="'${harborProjectName}'") | .project_id')
         if [[ -z ${harborProjectId} ]]; then
@@ -43,5 +43,5 @@ harborCreateProject() {
         fi
 
     fi
-    
+
 }

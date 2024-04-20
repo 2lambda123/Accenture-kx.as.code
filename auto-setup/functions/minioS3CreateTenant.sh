@@ -10,7 +10,7 @@ minioS3CreateTenant() {
         minioNamespace="minio-${tenant}"
 
         # Create Kubernetes Namespace
-        kubectl get namespace ${minioNamespace} || kubectl create namespace ${minioNamespace} 
+        kubectl get namespace ${minioNamespace} || kubectl create namespace ${minioNamespace}
 
         # Create MinIO Tenantif not already existing
         if [[ -z "$(kubectl minio tenant status ${namespace} --json | jq -r '.currentState')" ]]; then
@@ -23,5 +23,5 @@ minioS3CreateTenant() {
         fi
 
     fi
-    
+
 }

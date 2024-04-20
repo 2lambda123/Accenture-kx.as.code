@@ -32,5 +32,5 @@ getKeycloakClientSecret() {
         fi
 
     fi
-    
+
 }

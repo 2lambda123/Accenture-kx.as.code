@@ -17,7 +17,7 @@ autoSetupScriptInstall() {
 
     # Execute scripts
     for script in ${scriptsToExecute}; do
-   
+
         if [[ ! -f ${installComponentDirectory}/${script} ]]; then
             log_error "Install script ${installComponentDirectory}/${script} does not exist. Check your spelling in the \"metadata.json\" file and that it is checked in correctly into Git"
             autoSetupSaveRetryData "2" "main_scripts" "${script}" "${payload}"

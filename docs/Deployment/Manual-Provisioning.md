@@ -76,5 +76,3 @@ If anything ends up in the `failed_queue`, you must either `purge` it from the q
 Moving a message is simple. Just go into the failed_queue detail page by clicking it's name on the queue list and then scrolling down to `move_messages` and entering `retry_queue` in the `Destination queue` field, subseqeuently hitting the `Move messages` button.
 
 <img src="../../assets/images/image-20201119213436428.png" alt="image-20201119213436428.png" align="left"/>
-
-
