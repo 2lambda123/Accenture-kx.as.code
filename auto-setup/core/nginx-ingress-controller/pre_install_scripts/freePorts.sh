@@ -15,4 +15,3 @@ if [[ -f /etc/apache2/ports.conf ]]; then
   systemctl restart apache2
   systemctl status apache2.service
 fi
-

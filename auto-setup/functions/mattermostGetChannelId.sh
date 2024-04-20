@@ -10,10 +10,10 @@ mattermostGetChannelId() {
 
         # Get Mattermost Team Id
         mattermostTeamId=$(mattermostGetTeamId "${mattermostTeamName}")
-        
+
         # Get Mattermost Channel Id
         curl -s -H 'Authorization: Bearer '${mattermostLoginToken}'' -X GET https://mattermost.${baseDomain}/api/v4/teams/${mattermostTeamId}/channels/name/${mattermostChannelName} | jq -r '.id'
 
     fi
-    
+
 }

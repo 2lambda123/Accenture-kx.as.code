@@ -144,7 +144,7 @@ const checkIsAppNameInCompletedQueue = (queueData, appName) => {
 const HealthcheckDashboard = (props) => {
   const [isOpenAppsHealthcheckDashboardSection, setIsOpenAppsHealthcheckDashboardSection] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  
+
   useEffect(() => {
 
   }, []);

@@ -109,7 +109,7 @@ spec:
       volumes:
       - name: '${componentName}'-ca-certificate
         configMap:
-          name: '${componentName}'-ca-certificate 
+          name: '${componentName}'-ca-certificate
 ---
 apiVersion: v1
 kind: Service

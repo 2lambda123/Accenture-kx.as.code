@@ -130,7 +130,7 @@ function ApplicationGroupCard(props) {
 
           {/* Main Card Content */}
           {/* <div className="mb-4">{props.appGroup.description}</div> */}
-          {/* 
+          {/*
           <div className="flex">
             <ul className="float-left">
               {drawApplicationGroupCardComponentsTags(appGroupComponents)}

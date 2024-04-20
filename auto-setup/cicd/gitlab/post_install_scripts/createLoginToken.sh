@@ -13,7 +13,7 @@ if [[ -z $(getPassword "gitlab-personal-access-token" "gitlab") ]]; then
 
     # Save generated token to admin user account
     kubectl exec -n ${namespace} ${podName} -c toolbox -- gitlab-rails runner "token = User.find_by_username('${adminUser}').personal_access_tokens.create(scopes: [:api], name: 'Automation token'); token.set_token('${personalAccessToken}'); token.save!"
-    
+
 else
 
     # Get currently configured personal access token

@@ -135,7 +135,7 @@ try {
             </div>
             <span id="counter_value_worker_node_count_warning_icon" data-text="${workerNodeCountWarningText}" class="warning-span tooltip">
                 <img src="/userContent/icons/triangle-exclamation-solid.svg" class="warn-image svg-orange-red" alt="warning" />
-            </span>  
+            </span>
         </div>
     </div>
     <style scoped="scoped" onload="show_value(&quot;${workerNodeCountStartValue}&quot;, &quot;counter_value_worker_node_count_previous_value&quot;, &quot;counter_value_worker_node_count&quot;, &quot;counter_value_worker_node_count_value&quot;, &quot;counter_value_worker_node_count_warning_icon&quot;, &quot;${workerNodeCountMinWarning}&quot;, &quot;${workerNodeValueDisplayConversion}&quot;, &quot;${workerNodeCountRangeUnit}&quot;);">   </style>
@@ -165,7 +165,7 @@ try {
                         <img src="/userContent/icons/information-variant.svg" class="info-icon" alt="info">
                     </span>
                     <span class="tooltiptext">${workerNodeCpuCoresInfoText}</span>
-                </div>  
+                </div>
                 <span id="slider_value_worker_node_cpu_cores_warning_icon" data-text="${workerNodeCpuCoresWarningText}" class="warning-span tooltip">
                     <img src="/userContent/icons/triangle-exclamation-solid.svg" class="warn-image svg-orange-red" alt="warning" />
                 </span>
@@ -198,7 +198,7 @@ try {
                         <img src="/userContent/icons/information-variant.svg" class="info-icon" alt="info">
                     </span>
                     <span class="tooltiptext">${workerNodeMemoryInfoText}</span>
-                </div>  
+                </div>
                 <span id="slider_value_worker_node_memory_warning_icon" data-text="${workerNodeMemoryWarningText}" class="warning-span tooltip">
                     <img src="/userContent/icons/triangle-exclamation-solid.svg" class="warn-image svg-orange-red" alt="warning" />
                 </span>

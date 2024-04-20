@@ -11,5 +11,5 @@ kubernetesGetServiceLoadBalancerIp() {
     fi
 
     kubectl get service -n ${namespace} ${serviceName} -o jsonpath=''${jsonPath}''
-    
+
 }

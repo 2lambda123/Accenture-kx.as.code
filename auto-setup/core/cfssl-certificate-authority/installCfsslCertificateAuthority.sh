@@ -10,7 +10,7 @@
 #sudo chmod +x cfssl-certinfo
 #sudo mv cfssl* /usr/local/bin
 
-/usr/bin/sudo apt-get install -y golang-cfssl 
+/usr/bin/sudo apt-get install -y golang-cfssl
 
 # Only run this script automatically on first login
 if [ ! -f ${certificatesWorkspace}/kx_server.pem ]; then

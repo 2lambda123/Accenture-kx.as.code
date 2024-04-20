@@ -15,5 +15,5 @@ keycloakLogin() {
         fi
 
     fi
-    
+
 }

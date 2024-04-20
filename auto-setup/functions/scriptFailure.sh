@@ -13,4 +13,3 @@ scriptFailure() {
   exit ${rc}
 
 }
-

@@ -254,4 +254,3 @@ if [[ ! -f .vmCredentialsFile ]]; then
   done
   log_info "Done. Created encrypted secrets file"
 fi
-

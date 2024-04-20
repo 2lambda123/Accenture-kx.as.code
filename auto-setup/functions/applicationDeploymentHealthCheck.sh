@@ -21,7 +21,7 @@ applicationDeploymentHealthCheck() {
 
       # Set default if not defined in metadata.json
       if [[ -z ${expectedHttpResponseCode} ]]; then
-        expectedHttpResponseCode="200" 
+        expectedHttpResponseCode="200"
       fi
 
       # Set curl auth option, if http_auth_required=true in solution's metadata.json
@@ -76,5 +76,5 @@ applicationDeploymentHealthCheck() {
 
   # Update hosts file so that a user can use domain names outside of the VM to access the provisioned applications/urls
   updateHostFileForExternalUse
-  
+
 }

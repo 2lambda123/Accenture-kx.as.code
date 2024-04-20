@@ -176,7 +176,7 @@ try {
     if (OLD_KX_MAIN_ADMIN_MEMORY != KX_MAIN_ADMIN_MEMORY && KX_MAIN_ADMIN_MEMORY != "" && KX_MAIN_ADMIN_MEMORY) {
         parsedJson.config.vm_properties.main_admin_node_memory = KX_MAIN_ADMIN_MEMORY.toInteger()
     }
-    
+
     def OLD_NUMBER_OF_KX_WORKER_NODES = parsedJson.config.vm_properties.worker_node_count
     if (OLD_NUMBER_OF_KX_WORKER_NODES != NUMBER_OF_KX_WORKER_NODES && NUMBER_OF_KX_WORKER_NODES != "" && NUMBER_OF_KX_WORKER_NODES) {
         parsedJson.config.vm_properties.worker_node_count = NUMBER_OF_KX_WORKER_NODES.toInteger()

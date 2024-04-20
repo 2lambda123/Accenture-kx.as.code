@@ -15,7 +15,7 @@ sendEmailNotification() {
   if [[ -z ${notificationTitle} ]]; then
     notificationTitle="KX.AS.CODE"
   fi
-  
+
   local emailAddress="$(cat ${profileConfigJsonPath} | jq -r '.notification_endpoints.email_address | select(.!=null)')"
 
   # If no MTA installed, skip email notifications

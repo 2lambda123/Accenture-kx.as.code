@@ -39,7 +39,7 @@ elif [[ "${system}" == "Linux" ]]; then
   virtualboxCliPath="/usr/bin/vboxmanage"
   vmwareCliPath="/usr/bin/vmrun"
   opensslVersionRequired="1.1.1"
-else 
+else
   exit 1
 fi
 

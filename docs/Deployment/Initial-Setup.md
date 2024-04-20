@@ -22,7 +22,7 @@ Prepare prerequisites according to the [Build Environment](../../Build/Local-Vir
       jenkins_server_port = "8081"
       jenkins_home = ".\jenkins_home"
       jenkins_shared_workspace = ".\shared_workspace"
-   
+
       # General Packer Build Variables
       # git_source_branch and/or git_repo_url must be updated if you created a new branch or forked the original repository
       kx_vm_user = "kx.hero"
@@ -32,7 +32,7 @@ Prepare prerequisites according to the [Build Environment](../../Build/Local-Vir
       kx_main_hostname = "kx-main"
       kx_node_hostname = "kx-node"
       kx_domain = "kx-as-code.local"
-   
+
       # Variables for Automated Secret Generation
       git_source_username = ""  # not needed for public repository
       git_source_password = ""  # not needed for public repository
@@ -78,9 +78,8 @@ Select `1` if you do not intend to build VMWare images. You can download the nee
 
 If all goes well, you should see the following message in the console:
 
-!!! success 
+!!! success
     - [INFO] Congratulations! Jenkins for KX.AS.CODE is successfully configured and running. Access Jenkins via the following URL: [http://localhost:8080/job/KX.AS.CODE_Launcher/build?delay=0sec](http://localhost:8080/job/KX.AS.CODE_Launcher/build?delay=0sec){:target="\_blank"}."
 
 !!! warning
     If you changed the IP or port for Jenkins in `jenkins.env`, you will need to use that when launching the Jenkins URL, instead of the default `localhost:8080` combination."
-

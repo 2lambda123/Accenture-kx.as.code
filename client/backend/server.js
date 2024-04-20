@@ -118,7 +118,7 @@ app.get('/mock/api/queues/:queue_name', async (req, res) => {
 
   try {
     const response = await axios.get(`http://localhost:8000/mock/api/queues/${queue_name}`);
-    
+
     const responseData = response.data;
 
     res.json(responseData);

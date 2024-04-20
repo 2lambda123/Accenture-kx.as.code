@@ -33,5 +33,5 @@ mattermostCreateWebhook() {
         curl -s -H 'Authorization: Bearer '${mattermostLoginToken}'' -X GET https://mattermost.${baseDomain}/api/v4/hooks/incoming
 
     fi
-    
+
 }
