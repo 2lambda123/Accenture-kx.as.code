@@ -1,5 +1,5 @@
 mssqlServerCloneDatabase() {
-        
+
     local mssqlServerIp=${1:-}
     local mssqlServerGoPassCredentialName=${2:-}
     local mssqlServerGoPassCredentiaGroup=${3:-}
@@ -23,7 +23,7 @@ mssqlServerCloneDatabase() {
             ${mssqlServerGoPassCredentiaGroup} \
             ${mssqlServerSourceDatabase} \
             ${mssqlServerTargetDatabase}
-     
+
      else
         log_info "Please provide all needed parameters when calling mssqlServerCloneDatabase()"
      fi

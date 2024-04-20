@@ -17,4 +17,3 @@ export cookieSecret=$(docker run --rm python:3 python -c 'import os,base64; prin
 # Create Secret for Kubernetes Dashboard Certificates
 kubectl delete secret ${componentName}-ca-certificate --ignore-not-found=true  -n ${namespace}
 kubectl create secret generic ${componentName}-ca-certificate --from-file=${installationWorkspace}/kx-certs -n ${namespace}
-

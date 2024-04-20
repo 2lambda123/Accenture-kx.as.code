@@ -22,5 +22,5 @@ gitlabCreateGroupVariable() {
         fi
 
     fi
-    
+
 }

@@ -33,5 +33,5 @@ keycloakUpdateRequiredActionsAuthFlow() {
         fi
 
     fi
-    
+
 }

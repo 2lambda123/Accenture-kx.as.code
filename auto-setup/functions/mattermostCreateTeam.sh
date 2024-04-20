@@ -21,5 +21,5 @@ mattermostCreateTeam() {
         fi
 
     fi
-    
+
 }

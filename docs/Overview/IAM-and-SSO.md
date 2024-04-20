@@ -1,6 +1,6 @@
 # IAM and SSO
 
-Identity Access Management (IAM) and Single Sign On (SSO) are managed by [KeyCloak](https://www.keycloak.org/){:target="\_blank"} in KX.AS.CODE. 
+Identity Access Management (IAM) and Single Sign On (SSO) are managed by [KeyCloak](https://www.keycloak.org/){:target="\_blank"} in KX.AS.CODE.
 
 The backend for Keycloak is OpenLDAP. When a user is added to `users.json` ([example](https://github.com/Accenture/kx.as.code/blob/main/profiles/vagrant-virtualbox/users.json){:target="\_blank"}), the user is automatically provisioned in OpenLDAP.
 `users.json` is read by [createUser.sh](https://github.com/Accenture/kx.as.code/blob/main/auto-setup/core/user-setup/createUsers.sh){:target="\_blank"}, which provisions the users in OpenLDAP.

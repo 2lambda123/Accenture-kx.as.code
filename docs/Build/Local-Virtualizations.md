@@ -6,7 +6,7 @@ For starting KX.AS.CODE without building the images yourself, follow the [Quick 
 
 ## Prerequisites
 
-!!! note 
+!!! note
     In order to build KX.AS.CODE, you will need the following pre-requisites
 
     - HashiCorp Packer - https://www.packer.io/downloads
@@ -33,7 +33,7 @@ Once the launcher is up, select the profile to build and then click on the play 
 !!! info
     You only need to build KX-Node if you intend to start KX.AS.CODE in a multi-node setup, either multiple KX-Main nodes, multiple KX-Node nodes or both.
 
-!!! warning 
+!!! warning
     If the Cloud Box Versions are not shown, you likely have an old version of Vagrant running. Please upgrade and try again.
 
 ![build_images](../assets/images/kx-as-code_configurator_select-profile.png){: .zoom}
@@ -58,21 +58,21 @@ The variables below are automatically generated with the correct values if you u
     packer build -force \
       -on-error=abort \  # leave VM up on error for debugging
       -only kx-main-virtualbox \  # change depending on profile. here the KX-Main image is being built for VirtualBox
-      -var compute_engine_build=false \  # Disables grub boot splash screen as it doesn't work on public clouds 
+      -var compute_engine_build=false \  # Disables grub boot splash screen as it doesn't work on public clouds
       -var memory=8192 \
       -var cpus=2 \
-      -var video_memory=128 \ 
+      -var video_memory=128 \
       -var hostname=kx-main \
-      -var domain=kx-as-code.local \ 
+      -var domain=kx-as-code.local \
       -var version=0.8.8 \
-      -var kube_version=1.21.3-00 \ 
+      -var kube_version=1.21.3-00 \
       -var vm_user=kx.hero \
-      -var vm_password=L3arnandshare \ 
-      -var git_source_url=https://github.com/Accenture/kx.as.code.git \ 
-      -var git_source_branch=main \ 
+      -var vm_password=L3arnandshare \
+      -var git_source_url=https://github.com/Accenture/kx.as.code.git \
+      -var git_source_branch=main \
       -var git_source_user=**** \
       -var git_source_token=**** \
-      -var base_image_ssh_user=vagrant \ 
+      -var base_image_ssh_user=vagrant \
       ./kx-main-local-profiles.json
     ```
 
@@ -86,21 +86,21 @@ The variables below are automatically generated with the correct values if you u
     packer build -force \
       -on-error=abort \  # leave VM up on error for debugging
       -only kx-node-virtualbox \  # change depending on profile. here the KX-Main image is being built for VirtualBox
-      -var compute_engine_build=false \  # Disables grub boot splash screen as it doesn't work on public clouds 
+      -var compute_engine_build=false \  # Disables grub boot splash screen as it doesn't work on public clouds
       -var memory=8192 \
       -var cpus=2 \
-      -var video_memory=128 \ 
+      -var video_memory=128 \
       -var hostname=kx-node \
-      -var domain=kx-as-code.local \ 
+      -var domain=kx-as-code.local \
       -var version=0.8.8 \
-      -var kube_version=1.21.3-00 \ 
+      -var kube_version=1.21.3-00 \
       -var vm_user=kx.hero \
-      -var vm_password=L3arnandshare \ 
-      -var git_source_url=https://github.com/Accenture/kx.as.code.git \ 
-      -var git_source_branch=main \ 
+      -var vm_password=L3arnandshare \
+      -var git_source_url=https://github.com/Accenture/kx.as.code.git \
+      -var git_source_branch=main \
       -var git_source_user=**** \
       -var git_source_token=**** \
-      -var base_image_ssh_user=vagrant \ 
+      -var base_image_ssh_user=vagrant \
       ./kx-node-local-profiles.json
     ```
 
@@ -136,7 +136,7 @@ For VMWare you will need a licensed version of either VMWare Fusion (Mac) or VMW
 
 #### Updating VirtualBox Guest Additions
 
-!!! warning 
+!!! warning
     For VirtualBox you will need to ensure you have the matching guest additions version in the worker and master node json files.
 
     ```json
@@ -151,5 +151,3 @@ For VMWare you will need a licensed version of either VMWare Fusion (Mac) or VMW
 
 !!! danger "Important"
     Important. Currently, this process does not work on ARM based processors. However, work is in progress to enable ARM64. See here.
-
-

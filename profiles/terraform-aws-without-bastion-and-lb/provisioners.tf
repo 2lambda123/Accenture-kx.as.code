@@ -362,4 +362,3 @@ resource "null_resource" "kx_main_replica" {
   }
 
 }
-

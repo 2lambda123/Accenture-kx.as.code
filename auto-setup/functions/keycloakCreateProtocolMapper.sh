@@ -43,5 +43,5 @@ createKeycloakProtocolMapper() {
         fi
 
     fi
-    
+
 }

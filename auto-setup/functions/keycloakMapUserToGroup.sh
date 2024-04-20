@@ -32,5 +32,5 @@ mapKeycloakUserToGroup() {
         fi
 
     fi
-    
+
 }

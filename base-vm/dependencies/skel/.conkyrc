@@ -74,4 +74,3 @@ ${color white}RAM Usage:$color $mem/$memmax - $memperc% ${membar 4}
 ${color white}CPU Usage:$color $cpu% ${cpubar 4}
 ${color white}Processes:$color $processes  ${color white}Running:$color $running_processes
 ]]
-

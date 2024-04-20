@@ -2,7 +2,7 @@
 
 The advantage of installation groups is that they are scripted to integrate with each other. This may not be the case if you install individual applications that have not been scripted and tested to work together.
 
-There are currently two ways to install applications groups. Either via the Jenkins launcher before KX.AS.CODE has been started, and via the command line, after KX.AS.CODE has been started. 
+There are currently two ways to install applications groups. Either via the Jenkins launcher before KX.AS.CODE has been started, and via the command line, after KX.AS.CODE has been started.
 
 ## Via the Jenkins based Launcher
 
@@ -15,7 +15,7 @@ You can select multiple groups, but please heed the warning below.
 !!! warning
     If you have a low number of resources (less than 16GB ram), you need to be careful that you don't overload your environment.
 
-!!! info 
+!!! info
     In future it will also be possible to install application groups via the KX Portal, but this is still in development and the feature is not ready yet.
 
 !!! tip

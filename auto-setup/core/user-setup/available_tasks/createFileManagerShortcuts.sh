@@ -27,7 +27,7 @@ for i in $(seq 0 $((numUsersToCreate - 1))); do
     createFileManagerShortcut "${taskShortcutsDirectory}" "${userid}" "folder-script"
     createFileManagerShortcut "${vendorDocsDirectory}" "${userid}" "folder-text"
     createFileManagerShortcut "${apiDocsDirectory}" "${userid}" "folder-text"
-    
+
 done
 
 createFileManagerShortcut "/home/${baseUser}/dce20-pmi-aem-cloudmanager" "${baseUser}" "code-context"

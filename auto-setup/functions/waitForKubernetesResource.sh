@@ -10,5 +10,5 @@ waitForKubernetesResource() {
     do \
       echo "Waiting for Kubernetes \"'${resourceType}'\" resource with name \"'${resourceName}'\" to be available in \"'${resourceNamespace}'\" namespace" && sleep 3; \
   done' ${1} ${2}
-  
+
 }

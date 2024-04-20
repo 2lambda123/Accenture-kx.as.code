@@ -28,5 +28,5 @@ postInstallStepLetsEncrypt() {
 
     fi
   fi
-  
+
 }

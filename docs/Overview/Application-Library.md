@@ -1321,6 +1321,3 @@ SonarQube (formerly Sonar) is an open-source platform developed by SonarSource f
     </div>
 </div>
 <hr/>
-
-
-

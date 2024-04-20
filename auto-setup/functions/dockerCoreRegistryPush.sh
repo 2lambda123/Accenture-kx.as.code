@@ -1,5 +1,5 @@
 pushDockerImageToCoreRegistry() {
-  
+
   imagePathToPush=${1}
 
   # Login
