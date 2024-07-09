@@ -5,3 +5,4 @@ markdown>=3.2
 pygments
 mkdocs-awesome-pages-plugin
 requests>=2.32.0 # not directly required, pinned by Snyk to avoid a vulnerability
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
