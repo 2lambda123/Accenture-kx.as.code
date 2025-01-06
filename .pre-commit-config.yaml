@@ -26,6 +26,6 @@ repos:
     -   id: shellcheck
 
 -   repo: https://github.com/tfsec/tfsec
-    rev: v1.28.11
+    rev: v1.28.12
     hooks:
     -   id: tfsec
